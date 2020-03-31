@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+    var cars = ["BMW", "Volvo", "Saab", "Ford"];
+
+    var i = 0;
+    var len = cars.length;
+    var text = "";
+
+    for (; i < len; ) {
+        text += cars[i] + "<br>";
+        i++;
+    }
+    document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>

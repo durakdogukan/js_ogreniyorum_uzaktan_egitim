@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Dizileri </h2>
+
+<p> Push yöntemi bir diziye yeni bir öğe ekler. </p>
+
+<button onclick="myFunction()">Diziye yeni eleman ekle</button>
+
+<p id="demo"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits;
+
+    function myFunction() {
+        fruits.push("Lemon");
+        document.getElementById("demo").innerHTML = fruits;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>JavaScript typeof</h2>
+<p> typeof operatörü, her iki nesne, dizi ve null için nesne döndürür. </p>
+<p> typeof operatörü operatörler için nesne döndürmez. </p>
+
+<p id="demo"></p>
+
+<script>
+    document.getElementById("demo").innerHTML =
+        typeof {name:'john', age:34} + "<br>" +
+        typeof [1,2,3,4] + "<br>" +
+        typeof null + "<br>" +
+        typeof function myFunc(){};
+    alert(typeof {name:'john', age:34} + "\n" + typeof [1,2,3,4] + "\n" + typeof null + "\n" + typeof function myFunc(){});
+</script>
+
+</body>
+</html>

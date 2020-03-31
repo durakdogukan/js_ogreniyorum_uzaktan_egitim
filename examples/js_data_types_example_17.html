@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>Objects can be emptied by setting the value to <b>null</b>.</p>
+
+<p id="demo"></p>
+
+<script>
+    var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+    person = null;
+    document.getElementById("demo").innerHTML = typeof person;
+    alert(typeof person);
+</script>
+
+</body>
+</html>

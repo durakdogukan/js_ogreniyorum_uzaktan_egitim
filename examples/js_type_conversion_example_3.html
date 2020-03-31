@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>JavaScript Diziler</h2>
+
+<p> Bu "el yapımı" isArray () fonksiyonu, bir dizide kullanıldığında true değerini döndürür: </p>
+
+<p id="demo"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = isArray(fruits);
+
+    function isArray(myArray) {
+        return myArray.constructor.toString().indexOf("Array") > -1;
+    }
+</script>
+
+</body>
+</html>

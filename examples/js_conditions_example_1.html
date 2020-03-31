@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<p>Saat 18: 00'den geriyse "İyi günler" selamlaması yapın:</p>
+
+<p id="demo">Good Evening!</p>
+
+<script>
+    if (new Date().getHours() < 18) {
+        document.getElementById("demo").innerHTML = "Good day!";
+        alert("Good day!");
+    }
+</script>
+
+</body>
+</html>

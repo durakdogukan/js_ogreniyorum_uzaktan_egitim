@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p> length özelliği, push () yöntemini kullanmadan bir diziye yeni öğeler eklemek için kolay bir yol sağlar. </p>
+
+<button onclick="myFunction()">Diziye yeni eleman ekle</button>
+
+<p id="demo"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits;
+
+    function myFunction() {
+        fruits[fruits.length] = "Lemon";
+        document.getElementById("demo").innerHTML = fruits;
+    }
+</script>
+
+
+</body>
+</html>

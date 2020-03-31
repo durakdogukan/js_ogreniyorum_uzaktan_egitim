@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Sayılar </h2>
+
+<p> Asla nesne olarak sayı oluşturmayın. </p>
+<p> JavaScript nesneleri karşılaştırılamaz. </p>
+
+<p id="demo"></p>
+
+<script>
+    var x = new Number(500);  // x object
+    var y = new Number(500);  // y object
+    document.getElementById("demo").innerHTML = (x==y);
+    alert((x==y));
+</script>
+
+
+</body>
+</html>

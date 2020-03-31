@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<p>Zaman bazlı bir karşılama mesajı görüntülemek için butona tıklayın:</p>
+
+<button onclick="myFunction()">Tıkla</button>
+
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+        var greeting;
+        var time = new Date().getHours();
+        if (time < 10) {
+            greeting = "Good morning";
+        } else if (time < 20) {
+            greeting = "Good day";
+        } else {
+            greeting = "Good evening";
+        }
+        document.getElementById("demo").innerHTML = greeting;
+        alert(greeting);
+    }
+
+</script>
+
+
+</body>
+</html>

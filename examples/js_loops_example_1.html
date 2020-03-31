@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>JavaScript Döngüler</h2>
+
+<p id="demo"></p>
+
+<script>
+    var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+    var text = "";
+    var i;
+    for (i = 0; i < cars.length; i++) {
+        text += cars[i] + "\n";
+    }
+    document.getElementById("demo").innerHTML = text;
+    alert(text);
+</script>
+
+
+</body>
+</html>

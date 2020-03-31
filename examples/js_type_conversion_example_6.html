@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>JavaScript Date Object</h2>
+<p> Bu "el yapımı" isDate () fonksiyonu, bir tarihte kullanıldığında true değerini döndürür: </p>
+
+<p id="demo"></p>
+
+<script>
+    var myDate = new Date();
+    document.getElementById("demo").innerHTML = isDate(myDate);
+
+    function isDate(myDate) {
+        return myDate.constructor === Date;
+    }
+</script>
+
+
+</body>
+</html>
