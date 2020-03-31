@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Olaylar (Events)</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Olaylar (Events)</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a  class="active" href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Olaylar (Events)</h2>
+    <br>HTML olayları, HTML öğelerinde meydana gelen "şeyler" dir.
+    <br>HTML sayfalarında JavaScript kullanıldığında, JavaScript bu olaylara "tepki verebilir".
+    <br><h2 style="color: chocolate">HTML Olayları</h2>
+    <br>HTML olayı, tarayıcının yaptığı veya kullanıcının yaptığı bir şey olabilir.
+    <br>HTML olaylarına bazı örnekler:
+    <br>
+    <li>Bir HTML web sayfasının yüklenmesi tamamlandı</li>
+    <li>Bir HTML giriş alanı değiştirildi</li>
+    <li>Bir HTML düğmesi tıklandı</li>
+    <br>Çoğu zaman, olaylar meydana geldiğinde, bir şeyler yapmak isteyebilirsiniz.
+    <br>JavaScript, olaylar algılandığında kod yürütmenizi sağlar.
+    <br>HTML, HTML kodlarına JavaScript kodlu olay işleyici niteliklerinin eklenmesine olanak tanır.
+    <br>Tek tırnak işaretleri ile:
+    <br><div><span style="color:brown"><span style="color:mediumblue">&lt;</span><em>element </em><span style="color:red"><em>event</em><span style="color:mediumblue">=<strong>'</strong><em><strong>some JavaScript</strong></em><strong>'</strong></span></span><span style="color:mediumblue">&gt;</span></span></div>
+    <br>Çift tırnak işaretleri ile:
+    <br><div><span style="color:brown"><span style="color:mediumblue">&lt;</span><em>element </em><span style="color:red"><em>event</em><span style="color:mediumblue">=<strong>"</strong><em><strong>some JavaScript </strong></em><strong>"</strong></span></span><span style="color:mediumblue">&gt;</span></span></div>
+    <br>Aşağıdaki örnekte, bir button öğesine bir onclick niteliği (kodlu) eklenmiştir:
+    <br><div>
+        <span style="color:brown"><span style="color:mediumblue">&lt;</span>button<span style="color:red"> onclick<span style="color:mediumblue">="document.getElementById('demo').innerHTML = Date()"</span></span><span style="color:mediumblue">&gt;</span></span>The time is?<span style="color:brown"><span style="color:mediumblue">&lt;</span>/button<span style="color:mediumblue">&gt;</span></span><br>
+    </div>
+    <br><a href="examples/js_events_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yukarıdaki örnekte, JavaScript kodu öğenin içeriğini id = "demo" ile değiştirir.
+    <br>Sonraki yapacağımız örnekte, kod kendi öğesinin içeriğini değiştirir (this.innerHTML kullanarak):
+    <br><div>
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>button<span style="color:red"> onclick<span style="color:mediumblue">="this.innerHTML = Date()"</span></span><span style="color:mediumblue">&gt;</span></span>The time is?<span style="color:brown"><span style="color:mediumblue">&lt;</span>/button<span style="color:mediumblue">&gt;</span></span><br>
+</div>
+    <br><a href="examples/js_events_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><div><span style="color:brown"><span style="color:mediumblue">&lt;</span>button<span style="color:red"> onclick<span style="color:mediumblue">="displayDate()"</span></span><span style="color:mediumblue">&gt;</span></span>The time is?<span style="color:brown"><span style="color:mediumblue">&lt;</span>/button<span style="color:mediumblue">&gt;</span></span> </div>
+    <br><a href="examples/js_events_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Ortak HTML Etkinlikleri</h2>
+    <br>Aşağıda bazı yaygın HTML etkinliklerinin bir listesi verilmiştir:
+    <br><table class="tablo1" style="width: 60%">
+        <tbody><tr>
+            <th>Olay</th>
+            <th>Açıklama</th>
+        </tr>
+        <tr>
+            <td>onchange</td>
+            <td>Bir HTML öğesi değiştirildi</td>
+        </tr>
+        <tr>
+            <td>onclick</td>
+            <td>Kullanıcı bir HTML öğesini tıklar</td>
+        </tr>
+        <tr>
+            <td>onmouseover</td>
+            <td>Kullanıcı fareyi bir HTML öğesinin üzerine taşır</td>
+        </tr>
+        <tr>
+            <td>onmouseout</td>
+            <td>Kullanıcı fareyi bir HTML öğesinden uzaklaştırır</td>
+        </tr>
+        <tr>
+            <td>onkeydown</td>
+            <td>Kullanıcı bir klavye tuşuna basar</td>
+        </tr>
+        <tr>
+            <td>onload</td>
+            <td>Tarayıcı sayfayı yüklemeyi tamamladı</td>
+        </tr>
+        </tbody></table>
+    <br><h2 style="color: chocolate">JavaScript ne yapabilir?</h2>
+    <br><li>Bir sayfa her yüklendiğinde yapılması gerekenler</li>
+    <li>Sayfa kapalıyken yapılması gerekenler</li>
+    <li>Kullanıcı bir düğmeyi tıkladığında gerçekleştirilmesi gereken eylem</li>
+    <li>Bir kullanıcı veri girdiğinde doğrulanması gereken içerik</li>
+    <li>Ve dahası ...</li>
+    <br>JavaScript'in etkinliklerle çalışmasına izin vermek için birçok farklı yöntem kullanılabilir:
+    <br>
+    <li>HTML olay özellikleri doğrudan JavaScript kodunu yürütebilir</li>
+    <li>HTML olay özellikleri JavaScript fonksiyonlarını çağırabilir</li>
+    <li>HTML öğelerine kendi olay işleyici fonksiyonlarını atayabilirsiniz</li>
+    <li>Etkinliklerin gönderilmesini veya işlenmesini engelleyebilirsiniz</li>
+    <li>Ve dahası ...</li>
+</div>
+</body>
+</html>

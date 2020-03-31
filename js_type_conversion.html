@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Tip Dönüşümleri</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+        
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Tip Dönüşümleri</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a  class="active" href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2"   >
+    <h2 style="color: darkslateblue">JavaScript Tip Dönüşümleri</h2>
+    <br>Number () bir sayıya, String () bir String'e, Boolean () bir Boolean'a dönüştürür.
+    <br><h2 style="color: chocolate">JavaScript Veri Türleri</h2>
+    <br>JavaScript'te değer içerebilen 5 farklı veri türü vardır:
+    <br><li>string</li>
+    <li>number</li>
+    <li>boolean</li>
+    <li>object</li>
+    <li>function</li>
+    <br>6 tür nesne vardır:
+    <br><li>Object</li>
+    <li>Date</li>
+    <li>Array</li>
+    <li>String</li>
+    <li>Number</li>
+    <li>Boolean</li>
+    <br>Ve değer içeremeyen 2 veri türü daha vardır:
+    <br><li>null</li>
+    <li>undefined</li>
+    <br><h2 style="color: chocolate">Typeof Operatörü</h2>
+    <br>Bir JavaScript değişkeninin veri türünü bulmak için typeof operatörünü kullanabilirsiniz.
+    <br><pre style="font-weight: bold">
+    typeof "John"                 // "string" döndürür
+    typeof 3.14                   // "number" döndürür
+    typeof NaN                    // "number" döndürür
+    typeof false                  // "boolean" döndürür
+    typeof [1,2,3,4]              // "object" döndürür
+    typeof {name:'John', age:34}  // "object" döndürür
+    typeof new Date()             // "object" döndürür
+    typeof function () {}         // "function" döndürür
+    typeof myCar                  // "undefined" * döndürür
+    typeof null                   // "object" döndürür
+</pre>
+    <br><a href="examples/js_type_conversion_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><pre style="font-weight: bold;color: red">Lütfen dikkat:</pre>
+    <br>NaN veri türü sayıdır
+    <br>Bir dizinin veri türü nesnedir
+    <br>Bir tarihin veri türü nesnedir
+    <br>Null veri türü nesnedir
+    <br>Undefined değişkeninin veri türü undefined *
+    <br>Değer atanmamış bir değişkenin veri türü de tanımsızdır *
+    <br><pre style="font-weight: bold;background-color: rgba(255,119,114,0.73);width: 90%">Bir JavaScript nesnesinin bir dizi (veya tarih) olup olmadığını belirlemek için typeof komutunu kullanamazsınız.</pre>
+    <br><h2 style="color: chocolate">Typeof Veri Türü</h2>
+    <br>Typeof operatörü bir değişken değildir. Bir operatör. Operatörlerin (+ - * /) herhangi bir veri türü yoktur.
+    <br>Ancak, typeof operatörü her zaman bir dize döndürür (işlenenin türünü içerir).
+    <br><h2 style="color: chocolate">Constructor özelliği</h2>
+    <br>Constructor özelliği, tüm JavaScript değişkenleri için yapıcı işlevini döndürür.
+    <br><pre style="font-weight: bold">
+    "John".constructor                // Returns function String()  {[native code]}
+    (3.14).constructor                // Returns function Number()  {[native code]}
+    false.constructor                 // Returns function Boolean() {[native code]}
+    [1,2,3,4].constructor             // Returns function Array()   {[native code]}
+    {name:'John',age:34}.constructor  // Returns function Object()  {[native code]}
+    new Date().constructor            // Returns function Date()    {[native code]}
+    function () {}.constructor        // Returns function Function(){[native code]}
+</pre>
+    <br><a href="examples/js_type_conversion_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bir nesnenin Dizi olup olmadığını öğrenmek için yapıcı özelliğini kontrol edebilirsiniz ("Dizi" kelimesini içerir):
+    <br><pre style="font-weight: bold">
+    function isArray(myArray) {
+      return myArray.constructor.toString().indexOf("Array") > -1;
+    }
+</pre>
+    <br><a href="examples/js_type_conversion_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Veya daha da basit olarak, nesnenin bir Array fonksiyonu olup olmadığını kontrol edebilirsiniz:
+    <br><pre style="font-weight: bold">
+    function isArray(myArray) {
+      return myArray.constructor === Array;
+    }
+</pre>
+    <br><a href="examples/js_type_conversion_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bir nesnenin bir Tarih olup olmadığını öğrenmek için yapıcı özelliğini kontrol edebilirsiniz ("Tarih" kelimesini içerir):
+    <br><pre style="font-weight: bold">
+    function isDate(myDate) {
+      return myDate.constructor.toString().indexOf("Date") > -1;
+    }
+</pre>
+    <br><a href="examples/js_type_conversion_example_5.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Veya daha da basit, nesnenin bir Tarih fonksiyonu olup olmadığını kontrol edebilirsiniz:
+    <br><pre style="font-weight: bold">
+    function isDate(myDate) {
+      return myDate.constructor === Date;
+    }
+</pre>
+    <br><a href="examples/js_type_conversion_example_6.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript Tip Dönüşümleri</h2>
+    <br>JavaScript değişkenleri yeni bir değişkene ve başka bir veri türüne dönüştürülebilir:
+    <br><li>JavaScript fonksiyonu kullanarak</li>
+    <li>JavaScript'in kendisi tarafından otomatik olarak</li>
+    <br><h2 style="color: chocolate">Sayıları Stringlere Dönüştürme</h2>
+    <br>Global yöntem String () sayıları stringe dönüştürebilir.
+    <br>Herhangi bir sayı, değişmez değer, değişken veya ifadede kullanılabilir:
+    <br><pre style="font-weight: bold">
+    String(x)         // returns a string from a number variable x
+    String(123)       // returns a string from a number literal 123
+    String(100 + 23)  // returns a string from a number from an expression
+</pre>
+    <br><a href="examples/js_type_conversion_example_7.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>ToString () yönteminin Number yöntemi de aynısını yapar.
+    <br><pre style="font-weight: bold">
+    x.toString()
+    (123).toString()
+    (100 + 23).toString()
+</pre>
+    <br><a href="examples/js_type_conversion_example_8.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>toExponential()</td>
+        <td>Üstel gösterim kullanılarak yuvarlanmış ve yazılmış bir sayı içeren bir dize döndürür.</td>
+    </tr>
+    <tr>
+        <td>toFixed()</td>
+        <td>Belirtilen sayıda ondalık sayı ile yuvarlanmış ve yazılmış bir dize döndürür.</td>
+    </tr>
+    <tr>
+        <td>toPrecision()</td>
+        <td>Belirtilen sayıda ondalık sayı ile yuvarlanmış ve yazılmış bir dize döndürür.</td>
+    </tr>
+</table>
+    <br><h2 style="color: chocolate">Booleanları Dizelere Dönüştürme</h2>
+    <br>Global yöntem String (), boolean'ları dizelere çevirebilir.
+    <br><pre style="font-weight: bold">
+    String(false)      // "false" döndürür
+    String(true)       // "true" döndürür
+</pre>
+    <br>ToString () yöntemi Boole yöntemi de bunu yapar.
+    <br><pre style="font-weight: bold">
+    false.toString()   // "false" döndürür
+    true.toString()    // "true" döndürür
+</pre>
+    <br><h2 style="color: chocolate">Tarihleri Stringlere Dönüştürme</h2>
+    <br>Genel yöntem String (), tarihleri stringlere dönüştürebilir.
+    <br><pre style="font-weight: bold">
+    String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+</pre>
+    <br>Date yöntemi toString () de aynı şeyi yapar.
+    <br><pre style="font-weight: bold">
+    Date().toString()  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+</pre>
+    <br><table class="tablo1" style="width:60%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>getDate()</td>
+        <td>Günü sayı olarak al (1-31)</td>
+    </tr>
+    <tr>
+        <td>getDay()</td>
+        <td>Hafta içi bir numara al (0-6)</td>
+    </tr>
+    <tr>
+        <td>getFullYear()</td>
+        <td>Dört haneli yılı al (yyyy)</td>
+    </tr>
+    <tr>
+        <td>getHours ()</td>
+        <td>Saati al (0-23)</td>
+    </tr>
+    <tr>
+        <td>getMilliseconds ()</td>
+        <td>Milisaniye al (0-999)</td>
+    </tr>
+    <tr>
+        <td>getMinutes()</td>
+        <td>Dakikayı al (0-59)</td>
+    </tr>
+    <tr>
+        <td>getMonth ()</td>
+        <td>Ayı al (0-11)</td>
+    </tr>
+    <tr>
+        <td>getSeconds ()</td>
+        <td>Saniyeyi al (0-59)</td>
+    </tr>
+    <tr>
+        <td>getTime()</td>
+        <td>Zamanı al (1 Ocak 1970'den bu yana milisaniye)</td>
+    </tr>
+</table>
+    <br><h2 style="color: chocolate">Stringleri Sayılara Dönüştürme</h2>
+    <br> Global yöntem Number (), dizeleri sayılara dönüştürebilir.
+    <br>Sayı içeren dizeler ("3.14" gibi) sayılara dönüştürülür (3.14 gibi).
+    <br>Boş dizeler 0'a dönüşür.
+    <br>Başka bir şey NaN (Sayı Değil) biçimine dönüşür.
+    <br><pre style="font-weight: bold">
+    Number("3.14")    // 3.14 döndürür
+    Number(" ")       // 0 döndürür
+    Number("")        // 0 döndürür
+    Number("99 88")   // NaN döndürür
+</pre>
+    <br><table class="tablo1" style="width:60%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>parseFloat()</td>
+        <td>Bir string'i ayrıştırır ve bir kayan nokta sayısı döndürür</td>
+    </tr>
+    <tr>
+        <td>parseInt()</td>
+        <td>Bir string'i ayrıştırır ve bir tamsayı döndürür</td>
+    </tr>
+</table>
+    <br><h2 style="color: chocolate">Unary + Operatörü</h2>
+    <br>Unary + operatörü bir değişkeni sayıya dönüştürmek için kullanılabilir:
+    <br><pre style="font-weight: bold">
+    var y = "5";      // y string
+    var x = + y;      // x number
+</pre>
+    <br><a href="examples/js_type_conversion_example_9.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Değişken dönüştürülemezse, yine de bir sayı olur, ancak NaN (Sayı Değil) değeriyle:
+    <br><pre style="font-weight: bold">
+    var y = "John";   // y string
+    var x = + y;      // x number (NaN)
+</pre>
+    <br><a href="examples/js_type_conversion_example_10.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Booleanları Sayılara Dönüştürme</h2>
+    <br>Number () global yöntemi booleanları sayılara dönüştürebilir.
+    <br><pre style="font-weight: bold">
+    Number(false)     // 0 döndürür
+    Number(true)      // 1 döndürür
+</pre>
+    <br><h2 style="color: chocolate">Tarihleri Sayılara Dönüştürme</h2>
+    <br>number () genel yöntemi, tarihleri sayılara dönüştürmek için kullanılabilir.
+    <br><pre style="font-weight: bold">
+    d = new Date();
+    Number(d)          // 1404568027739 döndürür
+</pre>
+    <br>GetTime () tarih yöntemi aynı şeyi yapar.
+    <br><pre style="font-weight: bold">
+    d = new Date();
+    d.getTime()        // 1404568027739 döndürür
+</pre>
+    <br><h2 style="color: chocolate">Otomatik Tip Dönüştürme</h2>
+    <br>JavaScript "yanlış" bir veri türünde çalışmaya çalıştığında, değeri "doğru" bir türe dönüştürmeye çalışır.
+    <br>Sonuç her zaman beklediğiniz gibi değildir:
+    <br><pre style="font-weight: bold">
+    5 + null    // returns 5         because null is converted to 0
+    "5" + null  // returns "5null"   because null is converted to "null"
+    "5" + 2     // returns "52"      because 2 is converted to "2"
+    "5" - 2     // returns 3         because "5" is converted to 5
+    "5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+</pre>
+    <br><h2 style="color: chocolate">Otomatik String'e Dönüştürme</h2>
+    <br>Bir nesneyi veya değişkeni "çıktıya" almaya çalıştığınızda JavaScript otomatik olarak değişkenin toString () fonksiyonunu çağırır:
+    <br><pre style="font-weight: bold">
+    document.getElementById("demo").innerHTML = myVar;
+    // if myVar = {name:"Fjohn"}  // toString converts to "[object Object]"
+    // if myVar = [1,2,3,4]       // toString converts to "1,2,3,4"
+    // if myVar = new Date()      // toString converts to "Fri Jul 18 2014 09:08:55 GMT+0200"
+</pre>
+    <br>Sayılar ve booleanlar da dönüştürülür, ancak bu çok görünür değildir:
+    <br><pre style="font-weight: bold">
+    // if myVar = 123             // toString converts to "123"
+    // if myVar = true            // toString converts to "true"
+    // if myVar = false           // toString converts to "false"
+</pre>
+    <br><h2 style="color: chocolate">JavaScript Tür Dönüşüm Tablosu</h2>
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Original Value</th>
+        <th>Converted to Number</th>
+        <th>Converted to String</th>
+        <th>Converted to Boolean</th>
+    </tr>
+    <tr>
+        <td>false</td>
+        <td>0</td>
+        <td>"false"</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>true</td>
+        <td>1</td>
+        <td>"true"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>"0"</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>"1"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>"0"</td>
+        <td>0</td>
+        <td>"0"</td>
+        <td><div style="color: red;font-weight: bold">true</div></td>
+    </tr>
+    <tr>
+        <td>"000"</td>
+        <td>0</td>
+        <td>"000"</td>
+        <td><div style="color: red;font-weight: bold">true</div></td>
+    </tr>
+    <tr>
+        <td>"1"</td>
+        <td>1</td>
+        <td>"1"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>NaN</td>
+        <td>NaN</td>
+        <td>"NaN"</td>
+        <td> false</td>
+    </tr>
+    <tr>
+        <td>Infinity</td>
+        <td>Infinity</td>
+        <td>"Infinity"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>-Infinity</td>
+        <td>-Infinity</td>
+        <td>"-Infinity"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>""</td>
+        <td><div style="color: red;font-weight: bold">0</div></td>
+        <td>""</td>
+        <td><div style="color: red;font-weight: bold">false</div></td>
+    </tr>
+    <tr>
+        <td>"20"</td>
+        <td>20</td>
+        <td>"20"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>"twenty"</td>
+        <td>NaN</td>
+        <td>"twenty"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>[ ]</td>
+        <td><div style="color: red;font-weight: bold">0</div></td>
+        <td>""</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>[20]</td>
+        <td><div style="color: red;font-weight: bold">20</div></td>
+        <td>"20"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>[10,20]</td>
+        <td>NaN</td>
+        <td>"10,20"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>["twenty"]</td>
+        <td>NaN</td>
+        <td>"twenty"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>["ten","twenty"]</td>
+        <td>NaN</td>
+        <td>"ten,twenty"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>function(){}</td>
+        <td>NaN</td>
+        <td>"function(){}"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>{ }</td>
+        <td>NaN</td>
+        <td>"[object Object]"</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>null</td>
+        <td><div style="color: red;font-weight: bold">0</div></td>
+        <td>"null"</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>undefined</td>
+        <td>NaN</td>
+        <td>"undefined"</td>
+        <td>false</td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

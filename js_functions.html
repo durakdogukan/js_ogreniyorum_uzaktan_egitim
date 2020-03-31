@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Fonksiyonlar</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Fonksiyonlar</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a class="active" href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Fonksiyonlar</h2>
+    <br>JavaScript fonksiyonları, belirli bir görevi gerçekleştirmek için tasarlanmış bir kod bloğudur.
+    <br><pre style="font-weight: bold">
+    function myFunction(p1, p2) {
+    return p1 * p2;   // Fonksiyon p1 ve p2'nin çarpımını döndürür
+    }
+
+    p1=4, p2=3 değerlerini verelim
+</pre>
+    <br><a href="examples/js_functions_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript Fonksiyon Syntax</h2>
+    <br>Bir JavaScript fonksiyonu, işlev anahtar sözcüğüyle, ardından bir adla ve ardından parantez () ile tanımlanır.
+    <br>Fonksiyon adları harf, rakam, alt çizgi ve dolar işareti içerebilir (değişkenlerle aynı kurallar).
+    <br>Parantezler virgülle ayrılmış parametre adları içerebilir:
+    <br>(parametre1, parametre2, ...)
+    <br>Fonksiyon tarafından yürütülecek kod, küme parantezlerinin içine yerleştirilir: {}
+    <br><pre style="font-weight: bold">
+    function name(parameter1, parameter2, parameter3) {
+    // yürütülecek kod
+    }
+</pre>
+    <br>Fonksiyon parametreleri, Fonksiyon tanımındaki parantez () içinde listelenir.
+    <br>Fonksiyon bağımsız değişkenleri, Fonksiyon çağrıldığında Fonksiyon tarafından alınan değerlerdir.
+    <br>Fonksiyonun içinde, bağımsız değişkenler (parametreler) yerel değişkenler gibi davranır.
+    <br>Bir Fonksiyon, diğer programlama dillerinde bir Prosedür veya Alt Program ile hemen hemen aynıdır.
+    <br><h2 style="color: chocolate">JavaScript Fonksiyon Çağırma</h2>
+    <br>"Bir şey" Fonksiyon çağırdığında (çağırdığında) Fonksiyon içindeki kod yürütülür:
+    <br>Bir olay meydana geldiğinde (kullanıcı bir düğmeyi tıkladığında)
+    <br>JavaScript kodundan çağrıldığında (çağrıldığında)
+    <br>Otomatik olarak (kendi kendine çağrılır)
+    <br><h2 style="color: chocolate">JavaScript Fonksiyon Dönüşü</h2>
+    <br>JavaScript bir dönüş ifadesine ulaştığında, fonksiyon yürütmeyi durdurur.
+    <br>Fonksiyon bir ifadeden çağrıldıysa, JavaScript çağırma ifadesinden sonra kodu çalıştırmak için "geri döner".
+    <br>Fonksiyonlar genellikle bir dönüş değeri hesaplar. Dönüş değeri "arayan" a geri döndürülür:
+    <br><pre style="font-weight: bold">
+    var x = myFunction(4, 3);   // Fonksiyon çağrıldı, sonuç x değerine atanacak
+    function myFunction(a, b) {
+    return a * b;             // Fonksiyon a ve b'nin çarpımını döndürür
+    }
+
+    Sonucumuzun 12 olması gerekiyor.
+</pre>
+    <br><a href="examples/js_functions_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Neden Fonksiyonlar ?</h2>
+    <br>Kodu yeniden kullanabilirsiniz: Kodu bir kez tanımlayın ve birçok kez kullanın.
+    <br>Farklı sonuçlar elde etmek için aynı kodu farklı argümanlarla birçok kez kullanabilirsiniz.
+    <br>Fahrenheit'i Celsius'a dönüştürün:
+    <br><pre style="font-weight: bold">
+    function toCelsius(fahrenheit) {
+     return (5/9) * (fahrenheit-32);
+    }
+    document.getElementById("demo").innerHTML = toCelsius(77);
+</pre>
+    <br><a href="examples/js_functions_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">() Fonksiyonu Çağırır</h2>
+    <br>Yukarıdaki örnek kullanılarak, toCelsius işlev nesnesini ve toCelsius () fonksiyon sonucunu belirtir.
+    <br>() İçermeyen bir fonksiyona erişmek, işlev sonucu yerine fonksiyon tanımını döndürür:
+    <br><pre style="font-weight: bold">
+    function toCelsius(fahrenheit) {
+     return (5/9) * (fahrenheit-32);
+    }
+    document.getElementById("demo").innerHTML = toCelsius;
+</pre>
+    <br><a href="examples/js_functions_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Değişken Değerleri Olarak Kullanılan Fonksiyonlar</h2>
+    <br>Fonksiyonlar, tüm formül, atama ve hesaplama türlerinde değişkenleri kullandığınız gibi kullanılabilir.
+    <br>Bir fonksiyonun dönüş değerini depolamak için bir değişken kullanmak yerine:
+    <br><pre style="font-weight: bold">
+    var x = toCelsius(77);
+    var text = "The temperature is " + x + " Celsius";
+</pre>
+    <br>Fonksiyonu doğrudan değişken bir değer olarak kullanabilirsiniz:
+    <br><pre style="font-weight: bold">
+    var text = "The temperature is " + toCelsius(77) + " Celsius";
+</pre>
+    <br><a href="examples/js_functions_example_5.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Yerel Değişkenler</h2>
+    <br>JavaScript fonksiyonu içinde bildirilen değişkenler, foknsiyona YEREL olur.
+    <br>Yerel değişkenlere sadece fonksiyon içinden erişilebilir
+    <br><pre style="font-weight: bold">
+    // Buradaki kod carName'i KULLANAMAZ
+
+    function myFunction() {
+    var carName = "Volvo";
+    // Buradaki kod carName'i KULLANIR
+    }
+
+    // Buradaki kod carName'i KULLANAMAZ
+</pre>
+    <br><a href="examples/js_functions_example_6.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yerel değişkenler yalnızca fonksiyonlar içinde tanındığından, aynı ada sahip değişkenler farklı fonksiyonlarda kullanılabilir.
+    <br>Bir fonksiyon başladığında yerel değişkenler oluşturulur ve fonksiyon tamamlandığında silinir.
+
+
+
+</div>
+</body>
+</html>

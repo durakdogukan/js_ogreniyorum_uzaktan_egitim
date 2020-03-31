@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Sayılar</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Sayılar</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a class="active" href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Sayılar</h2>
+    <br>JavaScript'in yalnızca bir tür sayı tipi vardır. Sayılar ondalıklı veya ondalıksız olarak yazılabilir.
+    <br><pre style="font-weight: bold">
+    var x = 3.14;    // Ondalıklı şekilde yazılmış bir sayı
+    var y = 3;       // Ondalıklı şekilde yazılmamış bir sayı
+</pre>
+    <br><a href="examples/js_numbers_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Çok büyük veya çok küçük sayılar bilimsel (üslü) gösterimle yazılabilir:
+    <br><pre style="font-weight: bold">
+    var x = 123e5;    // 12300000
+    var y = 123e-5;   // 0.00123
+</pre>
+    <br><a href="examples/js_numbers_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript'te Sayılar Her Zaman 64 bit Kayan Noktadır</h2>
+    <br>Diğer birçok programlama dilinin aksine, JavaScript tamsayılar, kısa, uzun, kayan nokta vb.Gibi farklı sayı türlerini tanımlamaz.
+    <br>JavaScript numaraları her zaman uluslararası IEEE 754 standardını izleyerek çift kesinlikli kayar nokta sayısı olarak saklanır.
+    <br>Bu biçim sayıları 64 bitte saklar; burada sayı (kesir) 0 ila 51 bitlerinde, üs 52 ila 62 bitlerinde ve oturum açma biti 63'te saklanır:
+    <br><table class="tablo1" style="width: 60%">
+    <tbody><tr>
+        <th>Değer</th>
+        <th>Üs</th>
+        <th>İşaret</th>
+    </tr>
+    <tr>
+        <td>52 bits (0 - 51) </td>
+        <td>11 bits (52 - 62)</td>
+        <td>1 bit (63)</td>
+    </tr>
+    </tbody></table>
+    <br><h2 style="color: chocolate">Hassasiyet</h2>
+    Tamsayılar (nokta veya üs notasyonu olmayan sayılar) 15 basamağa kadar doğrudur.
+    <br><pre style="font-weight: bold">
+    var x = 999999999999999;   // x will be 999999999999999
+    var y = 9999999999999999;  // y will be 10000000000000000
+</pre>
+    <br><a href="examples/js_numbers_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Maksimum ondalık sayı 17'dir, ancak kayan nokta aritmetiği her zaman % 100 doğru değildir:
+    <br><pre style="font-weight: bold">
+    var x = 0.2 + 0.1;         // x 0.30000000000000004 olacak
+</pre>
+    <br><a href="examples/js_numbers_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yukarıdaki sorunu çözmek için çarpma ve bölmeye yardımcı olur:
+    <br><pre style="font-weight: bold">
+    var x = (0.2 * 10 + 0.1 * 10) / 10;       // x 0.3 olacak.
+</pre>
+    <br><a href="examples/js_numbers_example_5.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Sayı ve String Ekleme</h2>
+    <div style="background-color: rgba(255,119,114,0.73);width: 45%">
+        <br>UYARI !!
+        <br>JavaScript hem ekleme hem de birleştirme için + işlecini kullanır.
+        <br>Sayılar eklenir. Dizeler birleştirilir.
+    </div>
+    <br>İki sayı eklerseniz sonuç bir sayı olur:
+    <br><pre style="font-weight: bold">
+    var x = 10;
+    var y = 20;
+    var z = x + y;           // z değeri 30 olacak (sayı)
+</pre>
+    <br><a href="examples/js_numbers_example_6.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>İki string eklerseniz, sonuç bir string birleşimi olur:
+    <br><pre style="font-weight: bold">
+    var x = "10";
+    var y = "20";
+    var z = x + y;           // z değeri 1020 olacak (string)
+</pre>
+    <br><a href="examples/js_numbers_example_7.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bir sayı ve string eklerseniz, sonuç bir string birleşimi olur:
+    <br><pre style="font-weight: bold">
+    var x = 10;
+    var y = "20";
+    var z = x + y;           // z değeri 1020 olacak (string)
+</pre>
+    <br><a href="examples/js_numbers_example_8.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bir string ve sayı eklerseniz, sonuç bir string birleştirmesi olur:
+    <br><pre style="font-weight: bold">
+    var x = "10";
+    var y = 20;
+    var z = x + y;           // z değeri 1020 olacak (string)
+</pre>
+    <br><a href="examples/js_numbers_example_9.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yaygın bir hata, bu sonucun 30 olmasını beklemektir:
+    <br><pre style="font-weight: bold">
+    var x = 10;
+    var y = 20;
+    var z = "The result is: " + x + y;
+</pre>
+    <br><a href="examples/js_numbers_example_10.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yaygın bir hata, bu sonucun 102030 olmasını beklemektir:
+    <br><pre style="font-weight: bold">
+    var x = 10;
+    var y = 20;
+    var z = "30";
+    var result = x + y + z;
+</pre>
+    <br><a href="examples/js_numbers_example_11.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><div style="background-color: rgba(255,119,114,0.73);width: 41%">
+        <br>JavaScript yorumlayıcısı soldan sağa doğru çalışır.
+        <br>İlk 10 + 20 eklenir, çünkü x ve y'nin her ikisi de sayıdır.
+        <br>Daha sonra z + bir string olduğu için 30 + "30" birleştirilir.
+    </div>
+    <br><h2 style="color: chocolate">Sayısal Stringler</h2>
+    <br>JavaScript stringleri sayısal içeriğe sahip olabilir:
+    <br><pre style="font-weight: bold">
+    var x = 100;         // x sayı
+    var y = "100";       // y string
+</pre>
+    <br>JavaScript stringleri tüm sayısal işlemlerde sayılara dönüştürmeye çalışacaktır:
+    <br>Bu çalışacaktır:
+    <br><pre style="font-weight: bold">
+    var x = "100";
+    var y = "10";
+    var z = x / y;       // z değeri 10
+</pre>
+    <br><a href="examples/js_numbers_example_12.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bu da işe yarayacaktır:
+    <br><pre style="font-weight: bold">
+    var x = "100";
+    var y = "10";
+    var z = x * y; // z 1000 olacak
+</pre>
+    <br><a href="examples/js_numbers_example_13.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Ve bu da işe yarayacak:
+    <br><pre style="font-weight: bold">
+    var x = "100";
+    var y = "10";
+    var z = x - y;       // z 90 olacak
+</pre>
+    <br><a href="examples/js_numbers_example_14.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Ama bu işe yaramayacak:
+    <br><pre style="font-weight: bold">
+    var x = "100";
+    var y = "10";
+    var z = x + y;       // z 110 olmayacak (10010 olacak)
+</pre>
+    <br><a href="examples/js_numbers_example_15.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">NaN - Not a Number</h2>
+    <br>NaN, bir sayının yasal bir sayı olmadığını belirten JavaScript'e ayrılmış bir kelimedir.
+    <br>Sayısal olmayan bir dize ile aritmetik yapmaya çalışmak NaN (Sayı Değil) ile sonuçlanır:
+    <br><pre style="font-weight: bold">
+    var x = 100 / "Apple";  // x NaN olacak (Sayı değil)
+</pre>
+    <br><a href="examples/js_numbers_example_16.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Ancak, string sayısal bir değer içeriyorsa sonuç bir sayı olur:
+    <br><pre style="font-weight: bold">
+    var x = 100 / "10";     // x 10 olacak
+</pre>
+    <br><a href="examples/js_numbers_example_17.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bir değerin sayı olup olmadığını öğrenmek için isNaN () genel JavaScript fonksiyonunu kullanabilirsiniz:
+    <br><pre style="font-weight: bold">
+    var x = 100 / "Apple";
+    isNaN(x);               // True döndürecek çünkü x bir NaN
+</pre>
+    <br><a href="examples/js_numbers_example_18.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>NaN'a dikkat et. Bir matematik işleminde NaN kullanırsanız, sonuç NaN olur:
+    <br><pre style="font-weight: bold">
+    var x = NaN;
+    var y = 5;
+    var z = x + y;         // z NaN olacak
+</pre>
+    <br><a href="examples/js_numbers_example_19.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Veya sonuç bir birleştirme olabilir:
+    <br><pre style="font-weight: bold">
+    var x = NaN;
+    var y = "5";
+    var z = x + y;         // z NaN5 olacak
+</pre>
+    <br><a href="examples/js_numbers_example_20.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>NaN bir sayıdır: typeof NaN sayı döndürür:
+    <br><pre style="font-weight: bold">
+    typeof NaN;            // "number" döndürür
+</pre>
+    <br><a href="examples/js_numbers_example_21.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Infinity</h2>
+    <br>Sonsuz (veya -Infinity), mümkün olan en büyük sayının dışında bir sayı hesaplarsanız JavaScript'in döndüreceği değerdir.
+    <br><pre style="font-weight: bold">
+    var myNumber = 2;
+    while (myNumber != Infinity) {   // Sonsuza kadar çalıştır.
+    myNumber = myNumber * myNumber;
+}
+</pre>
+    <br><a href="examples/js_numbers_example_22.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>0'a (sıfır) bölme de Sonsuzluk üretir:
+    <br><pre style="font-weight: bold">
+    var x =  2 / 0;       // x +Sonsuz
+    var y = -2 / 0;       // y -Sonsuz
+</pre>
+    <br><a href="examples/js_numbers_example_23.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Sonsuzluk bir sayıdır: typeof Infinity sayı döndürür.
+    <br><pre style="font-weight: bold">
+    typeof Infinity;     // "number" döndürür
+</pre>
+    <br><a href="examples/js_numbers_example_24.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Hexadecimal</h2>
+    <br> Başında 0x olan sayısal sabitler onaltılık olarak yorumlanır:
+    <br><pre style="font-weight: bold">
+    var x = 0xFF;        // x 255 olarak gözükecektir
+</pre>
+    <br><a href="examples/js_numbers_example_25.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Varsayılan olarak, JavaScript sayıları temel 10 ondalık sayı olarak görüntüler.
+    <br>Ancak, taban 2'den taban 36'ya sayı çıktısı almak için toString () yöntemini kullanabilirsiniz.
+    <br>Onaltılık taban 16'dır. Ondalık taban 10'dur. Sekizlik taban 8'dir. İkilik taban 2'dir.
+    <br><pre style="font-weight: bold">
+    var myNumber = 32;
+    myNumber.toString(10);  // 32 döndürür
+    myNumber.toString(32);  // 10 döndürür
+    myNumber.toString(16);  // 20 döndürür
+    myNumber.toString(8);   // 40 döndürür
+    myNumber.toString(2);   // 100000 döndürür
+</pre>
+    <br><a href="examples/js_numbers_example_26.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Sayılar Nesne Olabilir</h2>
+    <br>Normalde JavaScript sayıları değişmez değerlerden oluşturulan ilkel değerlerdir:
+    <br>var x = 123;
+    <br>Ancak sayılar, yeni anahtar kelimeye sahip nesneler olarak da tanımlanabilir:
+    <br>var y = new Number(123);
+    <br><pre style="font-weight: bold">
+    var x = 123;
+    var y = new Number(123);
+
+    // typeof x number döndürecek
+    // typeof y object döndürecek
+</pre>
+    <br><a href="examples/js_numbers_example_27.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>== operatörü kullanırken eşit sayılar eşittir:
+    <br><pre style="font-weight: bold">
+    var x = 500;
+    var y = new Number(500);
+
+    // (x == y) true döndürür çünkü x ve y değerleri eşittir
+</pre>
+    <br><a href="examples/js_numbers_example_28.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>=== operatörü kullanılırken eşit sayılar eşit değildir, çünkü === işleci hem tür hem de değerde eşitlik bekler.
+    <br><pre style="font-weight: bold">
+    var x = 500;
+    var y = new Number(500);
+
+    // (x === y) false döndürür çünkü x ve y farklı tiplerdeler
+</pre>
+    <br><a href="examples/js_numbers_example_29.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Veya daha da kötüsü. Nesneler karşılaştırılamaz:
+    <br><pre style="font-weight: bold">
+    var x = new Number(500);
+    var y = new Number(500);
+
+    // (x == y) false döndürür çünkü nesneler karşılaştırılamaz
+</pre>
+    <br><a href="examples/js_numbers_example_30.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+
+
+
+
+
+
+</div>
+</body>
+</html>
