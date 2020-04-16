@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<p>Bir fonksiyon ifadesi bir değişkende saklandıktan sonra, değişken bir fonksiyon olarak kullanılabilir:</p>
+<pre>var x = function (a, b) {return a * b};
+a=4, b=3</pre>
+<p id="demo"></p>
+
+<script>
+    var x = function (a, b) {return a * b};
+    document.getElementById("demo").innerHTML = x(4, 3);
+    alert(x(4,3))
+</script>
+
+
+</body>
+</html>

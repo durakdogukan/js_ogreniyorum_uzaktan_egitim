@@ -1,0 +1,32 @@
+#alisveris-listesi {
+  padding-left: 12% ;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 30% 20%;
+  grid-gap: 10px;
+  text-align: left;
+}
+#alisveris-listesi div {
+  background: #c1c2ff;
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+input.test1{
+  color: red;
+  margin-left: 35%;
+}
+
+body {
+  font-family: arial, sans-serif ;
+  background-image: url("../pages/hw2examples/images/ecommerce-shopping-retail-ss-1920-800x450.jpg");
+  height: 450px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+html {
+  font-family: arial, sans-serif;
+}

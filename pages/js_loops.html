@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Döngüler</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Döngüler</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">JS DOM</h1></li>
+        <li><a href="js_htmldom.html">DOM Giriş</a></li>
+        <li><a href="js_htmldom_methods.html">DOM Yöntemleri</a></li>
+        <li><a href="js_htmldom_document.html">DOM Document</a></li>
+        <li><a href="adamasmacadokumanrapor.html">Adam Asmaca Döküman Rapor</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Nesneler</h1></li>
+        <li><a href="js_object_definition.html">Nesne Tanımları</a></li>
+        <li><a href="js_object_properties.html">Nesne Özellikleri</a></li>
+        <li><a href="js_object_methods.html">Nesne Yöntemleri</a></li>
+        <li><a href="js_object_display.html">Nesne Görüntüleme</a></li>
+        <li><a href="js_object_accessors.html">Nesne Erişimcileri</a></li>
+        <li><a href="js_object_constructors.html">Nesne Yapıcıları</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Fonksiyonlar</h1></li>
+        <li><a href="js_function_definition.html">Fonksiyon Tanımı</a></li>
+        <li><a href="js_function_parameters.html">Fonksiyon Parametreleri</a></li>
+        <li><a href="js_function_invocation.html">Derinlemesine Fonksiyon Çağırma</a></li>
+        <li><a href="js_function_call.html">Fonksiyon Çağırma </a></li>
+        <li><a href="js_function_apply.html">Fonksiyonun Uygulanması</a></li>
+        <li><a href="js_function_closures.html">Fonksiyonun Kapanması</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a   class="active" href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Döngüler</h2>
+    <br>Döngüler birkaç kez kod bloğu yürütebilir.
+    <br><h2 style="color: chocolate">JavaScript Döngüler</h2>
+    <br>Her seferinde farklı bir değerle aynı kodu tekrar tekrar çalıştırmak istiyorsanız döngüler kullanışlıdır.
+    <br>Genellikle dizilerle çalışırken durum budur:
+    <br><pre style="font-weight: bold">Bunu yazmak yerine:</pre>
+    <br><pre style="font-weight: bold">
+    text += cars[0] + "\n";
+    text += cars[1] + "\n";
+    text += cars[2] + "\n";
+    text += cars[3] + "\n";
+    text += cars[4] + "\n";
+    text += cars[5] + "\n";
+</pre>
+    <br><pre style="font-weight: bold">Bunu yazabilirsin:</pre>
+    <br><pre style="font-weight: bold">
+    var i;
+    for (i = 0; i < cars.length; i++) {
+      text += cars[i] + "\n";
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Farklı Döngü Çeşitleri</h2>
+    <br>JavaScript farklı döngü türlerini destekler:
+    <br><li>for - bir kod bloğundan birkaç kez geçer</li>
+    <li>for / in - nesnenin özellikleri arasında dolaşır</li>
+    <li>for / of - yinelenebilir bir nesnenin değerleri arasında geçiş yapar</li>
+    <li>while - belirtilen bir koşul geçerliyken bir kod bloğundan geçer</li>
+    <li>do / while - ayrıca belirtilen bir koşul geçerliyken bir kod bloğunda da dolaşır</li>
+    <br><h2 style="color: chocolate">For Döngüsü</h2>
+    <br>For döngüsü aşağıdaki sözdizimine sahiptir:
+    <br>Syntax
+    <br><pre style="font-weight: bold">
+    for (statement 1; statement 2; statement 3) {
+      // kod bloğu çalışacaktır.
+    }
+</pre>
+    <br><pre style="font-weight: bold">
+    İfade 1, kod bloğunun yürütülmesinden önce (bir kez) yürütülür.
+    İfade 2, kod bloğunu yürütme koşulunu tanımlar.
+    İfade 3, kod bloğu yürütüldükten sonra (her seferinde) yürütülür.
+</pre>
+    <br>Örnek
+    <br><pre style="font-weight: bold">
+    for (i = 0; i < 5; i++) {
+    text += "The number is " + i + "\n";
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yukarıdaki örnekte şunları okuyabilirsiniz:
+    <br>İfade 1 döngü başlamadan önce bir değişken ayarlar (var i = 0).
+    <br>İfade 2, döngünün çalışması için koşulu tanımlar (i 5'ten küçük olmalıdır).
+    <br>İfade 3, döngüdeki kod bloğu her yürütüldüğünde bir değeri (i ++) artırır.
+    <br><h2 style="color: chocolate">İfade 1</h2>
+    <br>Normalde döngüde kullanılan değişkeni başlatmak için 1. ifadeyi kullanırsınız (i = 0).
+    <br>Bu her zaman böyle değildir, JavaScript umursamaz. İfade 1 isteğe bağlıdır.
+    <br>1. ifadede birçok değeri başlatabilirsiniz (virgülle ayrılmış olarak):
+    <br><pre style="font-weight: bold">
+    for (i = 0, len = cars.length, text = ""; i < len; i++) {
+     text += cars[i] + "<br>";
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>İfade 1'i atlayabilirsiniz (değerleriniz döngü başlamadan önce ayarlandığında olduğu gibi):
+    <br><pre style="font-weight: bold">
+    var i = 2;
+    var len = cars.length;
+    var text = "";
+    for (; i < len; i++) {
+      text += cars[i] + "\n";
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">İfade 2</h2>
+    <br>Genellikle ifade 2, ilk değişkenin durumunu değerlendirmek için kullanılır.
+    <br>Bu her zaman böyle değildir, JavaScript umursamaz. Bildirim 2 de isteğe bağlıdır.
+    <br>İfade 2 true değerini döndürürse, döngü yeniden başlar, false döndürürse döngü sona erer.
+    <br><h2 style="color: chocolate">İfade 3</h2>
+    <br>Genellikle ifade 3, ilk değişkenin değerini artırır.
+    <br> Bu her zaman geçerli değildir, JavaScript umursamaz ve ifade 3 isteğe bağlıdır.
+    <br>İfade 3, negatif artış (i--), pozitif artış (i = i + 15) veya başka bir şey yapabilir.
+    <br> İfade 3 de atlanabilir (değerlerinizi döngü içinde artırdığınızda olduğu gibi):
+    <br><pre style="font-weight: bold">
+    var i = 0;
+    var len = cars.length;
+    for (; i < len; ) {
+      text += cars[i] + "\n";
+      i++;
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_5.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript For/In Döngüsü</h2>
+    <br>For/In ifadesinin JavaScript'i bir nesnenin özellikleri arasında dolaşır:
+    <br><pre style="font-weight: bold">
+    var person = {fname:"John", lname:"Doe", age:25};
+    var text = "";
+    var x;
+    for (x in person) {
+      text += person[x];
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_6.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript For/Of Döngüsü</h2>
+    <br>For/Of ifadesi için JavaScript yinelenebilir bir nesnenin değerleri arasında dolaşır
+    <br>for / of, Diziler, Dizeler, Haritalar, Düğüm Listeleri ve daha fazlası gibi yinelenebilir veri yapıları arasında geçiş yapmanızı sağlar.
+    <br>For / of loop aşağıdaki sözdizimine sahiptir:
+    <br><pre style="font-weight: bold">
+    for (variable of iterable) {
+      // kod bloğu çalışacaktır
+    }
+</pre>
+    <br>variable - Her yineleme için değişkene sonraki özelliğin değeri atanır. Değişken const, let veya var ile bildirilebilir.
+    <br>iterable - Yinelenebilir özelliklere sahip bir nesne.
+    <br><h2 style="color: chocolate">Bir Dizi Üzerinde Döngü</h2>
+    <br><pre style="font-weight: bold">
+    var cars = ['BMW', 'Volvo', 'Mini'];
+    var x;
+    for (x of cars) {
+      document.write(x + "\n");
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_7.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Bir String Üzerinde Döngü</h2>
+    <br><pre style="font-weight: bold">
+    var txt = 'JavaScript';
+    var x;
+    for (x of txt) {
+      document.write(x + "<br >");
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_8.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript While Döngüsü</h2>
+    <br>Döngüler, belirtilen bir koşul geçerli olduğu sürece bir kod bloğu yürütebilir.
+    <br>While döngüsü, belirtilen bir koşul geçerli olduğu sürece bir kod bloğundan geçer.
+    <br>Syntax
+    <br><pre style="font-weight: bold">
+    while (condition) {
+      // kod bloğu çalışacak
+    }
+</pre>
+    <br>Örnek
+    <br>Aşağıdaki örnekte, bir değişken (i) 10'dan az olduğu sürece döngüdeki kod tekrar tekrar çalışacaktır:
+    <br><pre style="font-weight: bold">
+    while (i < 10) {
+      text += "The number is " + i;
+      i++;
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_9.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript Do / While Döngüsü</h2>
+    <br>Do / while döngüsü, while döngüsünün bir çeşididir. Bu döngü, koşulun doğru olup olmadığını kontrol etmeden önce kod bloğunu bir kez yürütür, ardından koşul doğru olduğu sürece döngüyü tekrarlar.
+    <br>Syntax
+    <br><pre style="font-weight: bold">
+    do {
+      // kod bloğu çalışacak
+    }
+    while (condition);
+</pre>
+    <br>Örnek
+    <br>Aşağıdaki örnekte bir do / while döngüsü kullanılmıştır. Kod bloğu, koşul test edilmeden önce yürütüldüğünden, koşul yanlış olsa bile her zaman en az bir kez yürütülür:
+    <br><pre style="font-weight: bold">
+    do {
+      text += "The number is " + i;
+      i++;
+    }
+    while (i < 10);
+</pre>
+    <br><a href="../examples/js_loops_example_10.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Koşulda kullanılan değişkeni artırmayı unutmayın, aksi takdirde döngü asla bitmez!
+    <br><h2 style="color: chocolate">JavaScript For ve While Karşılaştırması</h2>
+    <br>For döngüsüyle ilgili önceki bölümü okuduysanız, while döngüsünün for döngüsü ile hemen hemen aynı olduğunu göreceksiniz, ifade 1 ve ifade 3 atlanmıştır.
+    <br>Bu örnekteki döngü, cars dizisinden araç adlarını toplamak için bir for döngüsü kullanır:
+    <br><pre style="font-weight: bold">
+    var cars = ["BMW", "Volvo", "Saab", "Ford"];
+    var i = 0;
+    var text = "";
+
+    for (;cars[i];) {
+      text += cars[i] + "\n";
+      i++;
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_11.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bu örnekteki döngü, cars dizisinden araç adlarını toplamak için bir while döngüsü kullanır:
+    <br><pre style="font-weight: bold">
+    var i = 0;
+    var text = "";
+
+    while (cars[i]) {
+      text += cars[i] + "\n";
+      i++;
+    }
+</pre>
+    <br><a href="../examples/js_loops_example_12.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

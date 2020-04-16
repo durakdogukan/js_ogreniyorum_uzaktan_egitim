@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<p> arguments.length özelliği, fonksiyon tarafından alınan bağımsız değişkenlerin sayısını döndürür: </p>
+
+<p id="demo"></p>
+
+<script>
+    function myFunction(a, b) {
+        return arguments.length;
+    }
+    document.getElementById("demo").innerHTML = myFunction(4, 3);
+    alert(myFunction(4, 3));
+</script>
+
+</body>
+</html>

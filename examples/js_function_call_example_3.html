@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>JavaScript Fonksiyonları</h2>
+<p>Aşağıdaki örnekde person2 üzerinde kullanarak kişinin fullName yöntemini çağırır:
+
+<p id="demo"></p>
+
+<script>
+    var person = {
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    var person1 = {
+        firstName:"John",
+        lastName: "Doe"
+    }
+    var person2 = {
+        firstName:"Mary",
+        lastName: "Doe"
+    }
+    x = person.fullName.call(person2);
+    document.getElementById("demo").innerHTML = x;
+    alert(x);
+</script>
+
+</body>
+</html>

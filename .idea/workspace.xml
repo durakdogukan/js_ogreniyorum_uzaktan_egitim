@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ad4d1a5d-e64d-41b0-87f0-b6bf41fb0ba9" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZkgJDly6uI21LOZNEms7snnJZI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dogukan\PhpstormProjects\Uzaktan_Egitim_Hafta_1\pages\hw2examples" />
+      <recent name="C:\Users\Dogukan\PhpstormProjects\Uzaktan_Egitim_Hafta_1\js" />
+      <recent name="C:\Users\Dogukan\PhpstormProjects\Uzaktan_Egitim_Hafta_1\pages\hw2examples\images" />
+      <recent name="C:\Users\Dogukan\PhpstormProjects\Uzaktan_Egitim_Hafta_1\pages" />
+      <recent name="C:\Users\Dogukan\PhpstormProjects\Uzaktan_Egitim_Hafta_1\css" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.alisverisListesi.js">
+    <configuration name="js_object_methods_example_4.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Uzaktan_Egitim_Hafta_1/examples/js_object_methods_example_4.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="alisverisListesi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/js/alisverisListesi.js" working-dir="$PROJECT_DIR$/pages/hw2examples">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.alisverisListesi.js" />
+        <item itemvalue="JavaScript Debug.js_object_methods_example_4.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad4d1a5d-e64d-41b0-87f0-b6bf41fb0ba9" name="Default Changelist" comment="" />
+      <created>1585388431243</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585388431243</updated>
+      <workItem from="1585388432536" duration="31470000" />
+      <workItem from="1585478892642" duration="19537000" />
+      <workItem from="1585571792973" duration="16902000" />
+      <workItem from="1585640129370" duration="11461000" />
+      <workItem from="1585665038517" duration="2190000" />
+      <workItem from="1586075859374" duration="17011000" />
+      <workItem from="1586115451745" duration="4214000" />
+      <workItem from="1586160633111" duration="41884000" />
+      <workItem from="1586207981450" duration="5225000" />
+      <workItem from="1586295936536" duration="30000" />
+      <workItem from="1586367461186" duration="111000" />
+      <workItem from="1586367905339" duration="763000" />
+      <workItem from="1586458548621" duration="5517000" />
+      <workItem from="1587035325421" duration="27046000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586164610058">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586164610058" />
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1587035636873">
+      <screen x="0" y="0" width="1920" height="1038" />
+    </state>
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1038@0.0.1920.1038" timestamp="1587035636873" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586208053586" />
+    <state x="424" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585611859740">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="424" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585611859740" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1585642720794">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585642720794" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585612853134">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585612853134" />
+  </component>
+</project>

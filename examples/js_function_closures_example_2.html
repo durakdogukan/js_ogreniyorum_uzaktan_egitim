@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<p> Bir fonksiyon, fonksiyonun dışında tanımlanan değişkenlere erişebilir: </p>
+
+<button type="button" onclick="myFunction()">Butona Tıkla!</button>
+
+<p id="demo"></p>
+
+<script>
+    var a = 4;
+    function myFunction() {
+        document.getElementById("demo").innerHTML = a * a;
+    }
+</script>
+
+</body>
+</html>

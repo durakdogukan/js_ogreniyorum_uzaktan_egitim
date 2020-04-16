@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Görüntüleme Nesneleri </h2>
+
+<p> JSON.stringify fonksiyonları dizgilendirmez: </p>
+
+<p id="demo"></p>
+
+<script>
+    var person = {name:"John", age:function () {return 30;}};
+
+    var myString = JSON.stringify(person);
+    document.getElementById("demo").innerHTML = myString;
+</script>
+
+</body>
+</html>

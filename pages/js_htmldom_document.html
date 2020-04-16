@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - HTML DOM Document</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript - HTML DOM Document</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">JS DOM</h1></li>
+        <li><a href="js_htmldom.html">DOM Giriş</a></li>
+        <li><a href="js_htmldom_methods.html">DOM Yöntemleri</a></li>
+        <li><a  class="active" href="js_htmldom_document.html">DOM Document</a></li>
+        <li><a href="adamasmacadokumanrapor.html">Adam Asmaca Döküman Rapor</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Nesneler</h1></li>
+        <li><a href="js_object_definition.html">Nesne Tanımları</a></li>
+        <li><a href="js_object_properties.html">Nesne Özellikleri</a></li>
+        <li><a href="js_object_methods.html">Nesne Yöntemleri</a></li>
+        <li><a href="js_object_display.html">Nesne Görüntüleme</a></li>
+        <li><a href="js_object_accessors.html">Nesne Erişimcileri</a></li>
+        <li><a href="js_object_constructors.html">Nesne Yapıcıları</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Fonksiyonlar</h1></li>
+        <li><a href="js_function_definition.html">Fonksiyon Tanımı</a></li>
+        <li><a href="js_function_parameters.html">Fonksiyon Parametreleri</a></li>
+        <li><a href="js_function_invocation.html">Derinlemesine Fonksiyon Çağırma</a></li>
+        <li><a href="js_function_call.html">Fonksiyon Çağırma </a></li>
+        <li><a href="js_function_apply.html">Fonksiyonun Uygulanması</a></li>
+        <li><a href="js_function_closures.html">Fonksiyonun Kapanması</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+<div class="ex2">
+    <br> <h2 style="color: darkslateblue">JavaScript - HTML DOM Document</h2>
+    <br>HTML DOM belge nesnesi, web sayfanızdaki diğer tüm nesnelerin sahibidir.
+    <br><h2 style="color: chocolate">HTML DOM Belge Nesnesi</h2>
+    <br>Belge nesnesi web sayfanızı temsil eder.
+    <br>Bir HTML sayfasındaki herhangi bir öğeye erişmek istiyorsanız, her zaman belge nesnesine erişmeye başlarsınız.
+    <br>Aşağıda, HTML'ye erişmek ve bunları değiştirmek için belge nesnesini nasıl kullanabileceğinize ilişkin bazı örnekler verilmiştir.
+   <br><h2 style="color: chocolate">HTML Öğelerini Bulma</h2>
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>document.getElementById(id)</td>
+        <td>Öğe kimliğine göre öğe bulma</td>
+    </tr>
+    <tr>
+        <td>document.getElementsByTagName(name)</td>
+        <td>Etiketleri adıyla öğeleri bulma</td>
+    </tr>
+    <tr>
+        <td>document.getElementsByClassName(name)</td>
+        <td>Sınıf adına göre öğeleri bulma</td>
+    </tr>
+</table>
+    <br><h2 style="color: chocolate">HTML Öğelerini Değiştirme</h2>
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>element.innerHTML =  new html content</td>
+        <td>Bir öğenin iç HTML'sini değiştirme</td>
+    </tr>
+    <tr>
+        <td>element.attribute = new value</td>
+        <td>HTML öğesinin özellik değerini değiştirme</td>
+    </tr>
+    <tr>
+        <td>element.style.property = new style</td>
+        <td>HTML öğesinin stilini değiştirme</td>
+    </tr>
+    <tr>
+        <td>element.setAttribute(attribute, value)</td>
+        <td>HTML öğesinin özellik değerini değiştirme</td>
+    </tr>
+</table>
+    <br><h2 style="color: chocolate">Eleman Ekleme ve Silme</h2>
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>document.createElement(element)</td>
+        <td>HTML öğesi oluşturma</td>
+    </tr>
+    <tr>
+        <td>document.removeChild(element)</td>
+        <td>HTML öğesini kaldırmae</td>
+    </tr>
+    <tr>
+        <td>document.appendChild(element)</td>
+        <td>HTML öğesi ekle</td>
+    </tr>
+    <tr>
+        <td>document.replaceChild(new, old)</td>
+        <td>HTML öğesini değiştirme</td>
+    </tr>
+    <tr>
+    <td>document.write(text)</td>
+    <td>HTML çıktı akışına yazma</td>
+</tr>
+</table>
+    <br><h2 style="color: chocolate">Olay İşleyicileri Ekleme</h2>
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>document.getElementById(id).onclick = function(){code}</td>
+        <td>Bir onclick etkinliğine olay işleyici kodu ekleme</td>
+    </tr>
+</table>
+    <br><h2 style="color: chocolate">HTML Nesneleri Bulma</h2>
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Method</th>
+        <th>Açıklama</th>
+        <th>DOM</th>
+    </tr>
+    <tr>
+        <td>document.anchors</td>
+        <td>&lt;a&gt; özelliğine sahip tüm öğeleri döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.applets</td>
+        <td>Returns all &lt;applet&gt; elements <span class="deprecated">(Deprecated in HTML5)</span></td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.baseURI</td>
+        <td>Belgenin mutlak temel URI'sini döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.body</td>
+        <td>Tüm &lt;body&gt; öğelerini döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.cookie</td>
+        <td>Belgenin çerezini döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.doctype</td>
+        <td>Belgenin belgesini döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.documentElement</td>
+        <td>Tüm &lt;html&gt; öğelerini döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.documentMode</td>
+        <td>Tarayıcı tarafından kullanılan modu döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.documentURI</td>
+        <td>Belgenin URI'sını döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.domain</td>
+        <td>Doküman sunucusunun alan adını döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.domConfig</td>
+        <td><span>Obsolete.</span> DOM yapılandırmasını döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.embeds</td>
+        <td>Tüm&lt;embed&gt; öğelerini döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.forms</td>
+        <td>Tüm&lt;form&gt; öğelerini döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.head</td>
+        <td>Tüm&lt;head&gt; öğelerini döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.images</td>
+        <td>Tüm &lt;img&gt; öğelerini döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.implementation</td>
+        <td>DOM uygulamasını döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.inputEncoding</td>
+        <td>Belgenin kodlamasını döndürür (karakter kümesi)</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.lastModified</td>
+        <td>Belgenin güncellendiği tarih ve saati döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.links</td>
+        <td>Bir href özniteliğine sahip tüm &lt;area&gt; ve &lt;a&gt; öğelerini döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.readyState</td>
+        <td>Belgenin (yükleme) durumunu döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.referrer</td>
+        <td>Yönlendirenin URI'sini döndürür (bağlantı belgesi)</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.scripts</td>
+        <td>&lt;script&gt; öğesini döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.strictErrorChecking</td>
+        <td>Hata kontrolü uygulanıyorsa döndürür</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>document.title</td>
+        <td>&lt;title&gt; öğesini döndürür</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>document.URL</td>
+        <td>Dokümanın tam URL'sini döndürür</td>
+        <td>1</td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Kullanıcı Formu</title>
+    <link rel="stylesheet" href="../../css/kullaniciformu.css">
+    <script src="../../js/kullaniciformu.js"></script>
+</head>
+
+<body>
+<h2 style="text-align: center;font-family: 'Bell MT';font-size: 300%;color:blue ">  Kullanıcı Formu</h2>
+<div style=" margin-left: 38%" >
+    <form id="benimFormum" method="get" action="https://www.google.com.tr">
+        <table>
+            <tr>
+                <td><label for="txtAd">Ad<span class="required">*</span></label></td>
+                <td><input type="text" id="txtAd" name="name"></td>
+                <td id="adHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+            <tr>
+                <td><label for="txtSoyad">Soyad<span class="required">*</span></label></td>
+                <td><input type="text" id="txtSoyad" name="name"></td>
+                <td id="soyadHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+            <tr>
+                <td><label for="txtTCno">T.C. Kimlik No<span class="required">*</span></label></td>
+                <td><input type="text" id="txtTCno"></td>
+                <td id="tcNohatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td><label for="txtAdres">Adres</label></td>
+                <td><input type="text" id="txtAdres" name="address"></td>
+                <td id="elmAddressError" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td><label for="txtPostakodu">Posta Kodu<span class="required">*</span></label></td>
+                <td><input type="text" id="txtPostakodu" name="zipcode"></td>
+                <td id="postaKoduHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td>Ulke<span class="required">*</span></td>
+                <td><select id="secimUlke" name="country">
+                    <option value="" selected>Lütfen Seçin...</option>
+                    <option value="TR">Türkiye</option>
+                    <option value="AN">Diğer</option>
+                </select></td>
+                <td id="ulkeHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td>Cinsiyet<span class="required">*</span></td>
+                <td><label><input type="radio" name="gender" value="m">Erkek</label>
+                    <label><input type="radio" name="gender" value="f">Kadın</label>
+                    <label><input type="radio" name="gender" value="a">Diğer</label></td>
+                <td id="cinsiyetHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td><label for="txtPhone">Telefon Numarası<span class="required">*</span></label></td>
+                <td><input type="text" id="txtPhone" name="phone"></td>
+                <td id="telefonHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td><label for="txtEmail">E posta<span class="required">*</span></label></td>
+                <td><input type="text" id="txtEmail" name="email"></td>
+                <td id="emailHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td><label for="txtPassword">Şifre (6-8 karakter)<span class="required">*</span></label></td>
+                <td><input type="password" id="txtPassword" name="password"></td>
+                <td id="sifreHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td><label for="txtPWVerified">Şifreyi Doğrulayın<span class="required">*</span></label></td>
+                <td><input type="password" id="txtPWVerified" name="pwVerified"></td>
+                <td id="sifredogrulamaHatasi" class="errorMsg">&nbsp;</td></tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Formu Gönder" id="btnSubmit">&nbsp;
+                    <input type="reset" value="Formu Temizle" id="btnReset"></td>
+                <td>&nbsp;</td></tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Fonksiyonları </h2>
+
+<p> Bu örnek, 3 özelliğe sahip bir nesne oluşturur (firstName, lastName, fullName). </p>
+<p> fullName özelliği bir yöntemdir: </p>
+
+<p id="demo"></p>
+
+<script>
+    var myObject = {
+        firstName:"John",
+        lastName: "Doe",
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    x = myObject.fullName();
+    document.getElementById("demo").innerHTML = x;
+    alert(x);
+</script>
+
+</body>
+</html>

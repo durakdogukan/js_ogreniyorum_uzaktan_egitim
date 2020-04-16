@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Nesne Özellikleri </h2>
+
+<p> Bir nesne özelliğine erişmenin iki farklı yolu vardır: </p>
+<p> .property veya ["property"] kullanabilirsiniz. </p>
+
+<p id="demo"></p>
+
+<script>
+    var person = {
+        firstname:"John",
+        lastname:"Doe",
+        age:50,
+        eyecolor:"blue"
+    };
+
+    document.getElementById("demo").innerHTML = person["firstname"] + " is " + person["age"] + " years old.";
+    alert(person["firstname"] + " is " + person["age"] + " years old.");
+</script>
+
+</body>
+</html>

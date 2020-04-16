@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Javascript Alışveriş Listesi
+  </title>
+  <link href="../../css/alisverisListesi.css" rel="stylesheet">
+  <script src="../../js/alisverisListesi.js"></script>
+</head>
+<body>
+<h1 style="font-family: 'Comic Sans MS';text-align: center;font-size: 350%">Alışveriş Listesi</h1>
+
+<p style="text-align: center;font-size: 200% ">Bugün Alınacaklar</p>
+<form id="alisveris-ekle" style="text-align: center;">
+  <input style="text-align: center;"  type="text" id="urun-ekle" placeholder="Ne Alacaksın?" />
+  <input style="text-align: center" type="submit" value="Ekle"/>
+  <input style="text-align: center" type="button" onclick="herseyiSil();"  id="alisveris-listesi-sil" value="Tümünü Sil"/><br>
+  <br><div id="alisveris-listesi" style="margin-left: 28%" ></div>
+</form>
+</body>
+</html>

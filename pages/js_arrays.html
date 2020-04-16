@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Diziler ve Dizi İşlemleri</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Diziler ve Dizi İşlemleri</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">JS DOM</h1></li>
+        <li><a href="js_htmldom.html">DOM Giriş</a></li>
+        <li><a href="js_htmldom_methods.html">DOM Yöntemleri</a></li>
+        <li><a href="js_htmldom_document.html">DOM Document</a></li>
+        <li><a href="adamasmacadokumanrapor.html">Adam Asmaca Döküman Rapor</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Nesneler</h1></li>
+        <li><a href="js_object_definition.html">Nesne Tanımları</a></li>
+        <li><a href="js_object_properties.html">Nesne Özellikleri</a></li>
+        <li><a href="js_object_methods.html">Nesne Yöntemleri</a></li>
+        <li><a href="js_object_display.html">Nesne Görüntüleme</a></li>
+        <li><a href="js_object_accessors.html">Nesne Erişimcileri</a></li>
+        <li><a href="js_object_constructors.html">Nesne Yapıcıları</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Fonksiyonlar</h1></li>
+        <li><a href="js_function_definition.html">Fonksiyon Tanımı</a></li>
+        <li><a href="js_function_parameters.html">Fonksiyon Parametreleri</a></li>
+        <li><a href="js_function_invocation.html">Derinlemesine Fonksiyon Çağırma</a></li>
+        <li><a href="js_function_call.html">Fonksiyon Çağırma </a></li>
+        <li><a href="js_function_apply.html">Fonksiyonun Uygulanması</a></li>
+        <li><a href="js_function_closures.html">Fonksiyonun Kapanması</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a  class="active"href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Diziler</h2>
+    <br>JavaScript dizileri, birden çok değeri tek bir değişkende depolamak için kullanılır.
+    <br><pre style="font-weight: bold">
+    var cars = ["Saab", "Volvo", "BMW"];
+</pre>
+    <br><a href="../examples/js_arrays_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Dizi nedir ?</h2>
+    <br></br>Dizi, aynı anda birden fazla değeri tutabilen özel bir değişkendir.
+    <br>Bir öğe listeniz varsa (örneğin, araba isimleri listesi), arabaları tek değişkenlerde saklamak şöyle görünebilir:
+    <br><pre style="font-weight: bold">
+    var car1 = "Saab";
+    var car2 = "Volvo";
+    var car3 = "BMW";
+</pre>
+    <br>Ancak, ya arabalar arasında dolaşıp belirli bir tane bulmak istiyorsanız? Peki ya 3 değil, 300 arabanız olsaydı?
+    <br>Çözüm bir dizi!
+    <br>Bir dizi, tek bir ad altında birçok değeri tutabilir ve değerlere bir dizin numarasına başvurarak erişebilirsiniz.
+    <br><h2 style="color: chocolate">Dizi oluşturma</h2>
+    <br>Bir dizi değişmezi kullanmak, bir JavaScript Dizisi oluşturmanın en kolay yoludur.
+    <br>Syntax:
+    <br><pre style="font-weight: bold   ">
+    var array_name = [item1, item2, ...];
+</pre>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><pre style="font-weight: bold">
+    var cars = ["Saab", "Volvo", "BMW"];
+</pre>
+    <br><a href="../examples/js_arrays_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Boşluklar ve satır kesmeleri önemli değildir. Bir bildirim birden çok satıra yayılabilir:
+    <br><pre style="font-weight: bold">
+    var cars = [
+      "Saab",
+      "Volvo",
+      "BMW"
+    ];
+</pre>
+    <br><a href="../examples/js_arrays_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript Yeni Anahtar Kelime Kullanma</h2>
+    <br>Aşağıdaki örnek aynı zamanda bir Dizi oluşturur ve buna Dizi değerleri verir:
+    <br><pre style="font-weight: bold">var cars = new Array("Saab", "Volvo", "BMW");</pre>
+    <br><a href="../examples/js_arrays_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Dizinin Elemanlarına Erişme</h2>
+    <br>Bir dizi öğesine dizin numarasına bakarak erişirsiniz.
+    <br>Bu ifade, otomobillerdeki ilk öğenin değerine erişir:
+    <br><pre style="font-weight: bold">var name = cars[0];</pre>
+    <br><pre style="font-weight: bold">
+    var cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo").innerHTML = cars[0];
+</pre>
+    <br><a href="../examples/js_arrays_example_5.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Dizi Öğesini Değiştirme</h2>
+    <br>Bu ifade, otomobillerdeki ilk elemanın değerini değiştirir:
+    <br><pre style="font-weight: bold">
+    cars[0] = "Opel";
+</pre>
+    <br><pre style="font-weight: bold">
+    var cars = ["Saab", "Volvo", "BMW"];
+    cars[0] = "Opel";
+    document.getElementById("demo").innerHTML = cars[0];
+</pre>
+    <br><a href="../examples/js_arrays_example_6.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Tam Diziye Erişme</h2>
+    <br>JavaScript ile, dizi adına başvurarak tam diziye erişilebilir:
+    <br><pre style="font-weight: bold">
+    var cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo").innerHTML = cars;
+</pre>
+    <br><a href="../examples/js_arrays_example_7.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Diziler nesnedir</h2>
+    <br>Diziler özel bir nesne türüdür. JavaScript'teki typeof operatörü diziler için "object" değerini döndürür.
+    <br>Ancak, JavaScript dizileri en iyi dizi olarak tanımlanır.
+    <br>Diziler, "öğelerine" erişmek için sayıları kullanır. Bu örnekte, [0] kişisi John'u döndürür:
+    <br><pre style="font-weight: bold">
+    var person = ["John", "Doe", 46];
+</pre>
+    <br><a href="../examples/js_arrays_example_8.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Nesneler "üyelerine" erişmek için adları kullanır. Bu örnekte, person.firstName John değerini döndürür:
+    <br><pre style="font-weight: bold">
+    var person = {firstName:"John", lastName:"Doe", age:46};
+</pre>
+    <br><a href="../examples/js_arrays_example_9.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Dizi Öğeleri Nesne Olabilir</h2>
+    <br>JavaScript değişkenleri nesne olabilir. Diziler özel nesnelerdir.
+    <br>Bu nedenle, aynı Dizide farklı türde değişkenlere sahip olabilirsiniz.
+    <br>Bir Dizide nesneler olabilir. Bir Dizide işlevleriniz olabilir. Bir Dizide diziler olabilir:
+    <br><pre style="font-weight: bold">
+    myArray[0] = Date.now;
+    myArray[1] = myFunction;
+    myArray[2] = myCars;
+</pre>
+    <br><h2 style="color: chocolate">Dizi Özellikleri ve Yöntemleri</h2>
+    <br> JavaScript dizilerinin gerçek gücü yerleşik dizi özellikleri ve yöntemleridir:
+    <br><pre style="font-weight: bold">
+    var x = cars.length;   // Length özelliği, öğe sayısını döndürür
+    var y = cars.sort();   // Sort () yöntemi dizileri sıralar
+</pre>
+    <br><h2 style="color: chocolate">Length Özelliği</h2>
+    <br>Bir dizinin length özelliği, bir dizinin uzunluğunu (dizi öğesi sayısı) döndürür.
+    <br><pre style="font-weight: bold">
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.length;   // fruits dizisinin uzunluğu 4
+</pre>
+    <br><a href="../examples/js_arrays_example_10.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">İlk Dizi Öğesine Erişim</h2>
+    <br><pre style="font-weight: bold">
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    var first = fruits[0];
+</pre>
+    <br><a href="../examples/js_arrays_example_11.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Son Dizi Öğesine Erişim</h2>
+    <br><pre style="font-weight: bold">
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    var last = fruits[fruits.length - 1];
+</pre>
+    <br><a href="../examples/js_arrays_example_12.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Döngü Dizisi Elemanları</h2>
+    <br>Bir dizi boyunca döngü oluşturmanın en güvenli yolu bir for döngüsü kullanmaktır:
+    <br><pre style="font-weight: bold">
+        <span><span>
+</span> <span>var</span> fruits, text, fLen, i;<br>fruits = [<span>"Banana"</span>, <span>"Orange"</span>, <span>"Apple"</span>, <span>"Mango"</span>];<br>
+</span>  fLen = fruits.<span>length</span>;<br><br>text = <span>"&lt;ul&gt;"</span>;<br><span>for</span> (i = <span>0</span>; i &lt; fLen; i++) {<br>&nbsp;&nbsp;text += <span>"&lt;li&gt;"</span> + fruits[i] + <span>"&lt;/li&gt;"</span>;<br>}<br>text <span>
+</span>  += <span>"&lt;/ul&gt;"</span>;<span>
+</span> </span>
+</pre>
+    <br><a href="../examples/js_arrays_example_13.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Array.forEach () işlevini de kullanabilirsiniz:
+    <br><pre style="font-weight: bold"><span><span>
+</span> <span>var</span> fruits, text;<br>fruits = [<span>"Banana"</span>, <span>"Orange"</span>, <span>"Apple"</span>, <span>"Mango"</span>];<br><span>
+</span>  <br>text = <span>"&lt;ul&gt;"</span>;<br>fruits.<span>forEach</span>(myFunction);<br>text += <span>"&lt;/ul&gt;"</span>;<br><span>
+</span>  <br><span>function</span> <span>
+</span>  myFunction(value) {<br>&nbsp; <span>
+</span> text += <span>"&lt;li&gt;"</span> + value + <span>"&lt;/li&gt;"</span>;<br>} </span></pre>
+    <br><a href="../examples/js_arrays_example_14.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Dizi Öğeleri Ekleme</h2>
+    <br>Bir diziye yeni bir öğe eklemenin en kolay yolu push () yöntemini kullanmaktır:
+    <br><pre style="font-weight: bold">
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push("Lemon");    // Meyveler dizisine yeni bir eleman (limon) ekler
+</pre>
+    <br><a href="../examples/js_arrays_example_15.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Length öğesi kullanılarak bir diziye yeni öğe de eklenebilir:
+    <br><pre style="font-weight: bold">
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[fruits.length] = "Lemon";    // Meyveler dizisine yeni bir eleman (limon) ekler
+</pre>
+    <br><a href="../examples/js_arrays_example_16.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">İlişkilendirilebilir Diziler</h2>
+    <br>Birçok programlama dili, adlandırılmış dizinlere sahip dizileri destekler.
+    <br>Adlandırılmış dizinleri olan dizilere ilişkilendirilebilir diziler denir.
+    <br>JavaScript, adlandırılmış dizine sahip dizileri desteklemez.
+    <br>JavaScript'te, diziler her zaman numaralı dizinler kullanır.
+    <br><pre style="font-weight: bold">
+    var person = [];
+    person[0] = "John";
+    person[1] = "Doe";
+    person[2] = 46;
+    var x = person.length;     // person.length 3 döndürür
+    var y = person[0];         // person[0] döndürür
+</pre>
+    <br><a href="../examples/js_arrays_example_17.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Diziler ve Nesneler Arasındaki Fark</h2>
+    <br>JavaScript'te, diziler numaralı dizinler kullanır.
+    <br>JavaScript'te nesneler adlandırılmış dizinler kullanır.
+    <br><h2 style="color: chocolate">Diziler Ne Zaman Kullanılmalı. Nesneler ne zaman kullanılır?</h2>
+    <br><li>JavaScript ilişkilendirilebilir dizileri desteklemez.</li>
+    <li>Eleman adlarının dize (metin) olmasını istediğinizde nesneleri kullanmalısınız.</li>
+    <li>Eleman adlarının sayı olmasını istediğinizde diziler kullanmalısınız.</li>
+    <br><h2 style="color: chocolate">Yeni Diziden Kaçının ()</h2>
+    <br>JavaScript'in yerleşik dizi yapıcısı yeni Array'ı () kullanmaya gerek yoktur.
+    <br>Bunun yerine [] kullanın.
+    <br>Bu iki farklı ifadenin her ikisi de points adlı yeni bir boş dizi oluşturur:
+    <br><pre style="font-weight: bold">
+    var points = new Array();     // Kötü
+    var points = [];              // İyi
+</pre>
+    <br>Bu iki farklı ifadenin her ikisi de 6 sayı içeren yeni bir dizi oluşturur:
+    <br><pre style="font-weight: bold">
+    var points = new Array(40, 100, 1, 5, 25, 10); // Kötü
+    var points = [40, 100, 1, 5, 25, 10];          // İyi
+</pre>
+    <br><a href="../examples/js_arrays_example_18.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yeni anahtar kelime yalnızca kodu karmaşık hale getirir. Ayrıca bazı beklenmedik sonuçlar da üretebilir:
+    <br><pre style="font-weight: bold">
+    var points = new Array(40, 100);  // İki öğeli (40 ve 100) bir dizi oluşturur
+</pre>
+    <br>Öğelerden birini kaldırırsam ne olur?
+    <br><pre style="font-weight: bold">
+    var points = new Array(40);  // 40 tanımsız eleman içeren bir dizi oluşturur !!!!!
+</pre>
+    <br><a href="../examples/js_arrays_example_19.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Bir Diziyi Tanıma</h2>
+    <br>Yaygın bir soru şudur: Bir değişkenin dizi olup olmadığını nasıl anlarım?
+    <br>Sorun JavaScript operatörü typeof "object" döndürüyor olmasıdır:
+    <br><pre style="font-weight: bold">
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+    typeof fruits;    // object döndürür
+</pre>
+    <br><a href="../examples/js_arrays_example_20.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>JavaScript dizisi bir nesne olduğu için typeof operatörü nesneyi döndürür.
+    <br>Çözüm 1:
+    <br>Bu sorunu çözmek için ECMAScript 5 yeni bir yöntem Array.isArray () tanımlar:
+    <br><pre style="font-weight: bold">Array.isArray(fruits);   // true döndürür</pre>
+    <br><a href="../examples/js_arrays_example_21.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bu çözümün sorunu ECMAScript 5'in eski tarayıcılarda desteklenmemesidir.
+    <br>Çözüm 2:
+    <br>Bu sorunu çözmek için kendi isArray() fonksiyonunu oluşturabilirsiniz:
+    <br><pre style="font-weight: bold">
+    function isArray(x) {
+      return x.constructor.toString().indexOf("Array") > -1;
+    }
+</pre>
+    <br><a href="../examples/js_arrays_example_22.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Bağımsız değişken bir dizi ise yukarıdaki fonksiyon her zaman true değerini döndürür.
+    <br>Daha doğrusu: nesne prototipi "Dizi" kelimesini içeriyorsa true değerini döndürür.
+    <br> Çözüm 3:
+    <br>İnstanceof operatörü, belirli bir kurucu tarafından bir nesne oluşturulursa true değerini döndürür:
+    <br><pre style="font-weight: bold">
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits instanceof Array;   // true döndürür
+</pre>
+    <br><a href="../examples/js_arrays_example_23.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+*{
+    background-color: #ebfff4;
+    zoom: 105%;
+}
+
+
+.required {
+}
+
+.errorMsg {  /
+    color: red;
+}
+
+.errorBox {
+    border: 2px solid red;
+}
+
+table {
+    border: 0;
+}
+
+td {
+    margin: 0;
+    padding: 3px 10px;
+}

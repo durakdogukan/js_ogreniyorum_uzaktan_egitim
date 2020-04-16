@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<p> Bir nesne yöntemi oluşturma ve kullanma. </p>
+
+<p> Yöntem aslında bir özellik değeri olarak depolanan bir fonksiyon tanımıdır. </p>
+
+<p id="demo"></p>
+
+<script>
+    var person = {
+        firstName: "John",
+        lastName : "Doe",
+        id     : 5566,
+        fullName : function() {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+
+    document.getElementById("demo").innerHTML = person.fullName;
+</script>
+
+</body>
+</html>

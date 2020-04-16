@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Fonksiyon Kapanışları </h2>
+
+<p> Yerel bir değişkenle sayma. </p>
+
+<p id="demo"></p>
+
+<script>
+    // Sayaç başlatılır
+    var counter = 0;
+
+    // Sayacı arttırma fonksiyonu
+    function add() {
+        var counter = 0;
+        counter += 1;
+    }
+
+    // add() 3 kere çağırıldı
+    add();
+    add();
+    add();
+
+    // Sonuç 3 değil, çünkü global ve yerel sayacı karıştırıyorsunuz.
+    document.getElementById("demo").innerHTML = "Sayaç: " + counter;
+    alert("Sayaç: " + counter);
+</script>
+
+
+</body>
+</html>

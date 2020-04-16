@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Fonksiyon Kapanışları </h2>
+
+<p> Yerel bir değişkenle sayma. </p>
+
+<p id="demo">0</p>
+
+<script>
+    document.getElementById("demo").innerHTML = add();
+    function add() {
+        var counter = 0;
+        function plus() {counter += 1;}
+        plus();
+
+        return counter;
+    }
+</script>
+
+</body>
+</html>

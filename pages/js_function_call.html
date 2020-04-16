@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Fonksiyon Çağırma</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Fonksiyon Çağırma</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">JS DOM</h1></li>
+        <li><a href="js_htmldom.html">DOM Giriş</a></li>
+        <li><a href="js_htmldom_methods.html">DOM Yöntemleri</a></li>
+        <li><a href="js_htmldom_document.html">DOM Document</a></li>
+        <li><a href="adamasmacadokumanrapor.html">Adam Asmaca Döküman Rapor</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Nesneler</h1></li>
+        <li><a href="js_object_definition.html">Nesne Tanımları</a></li>
+        <li><a href="js_object_properties.html">Nesne Özellikleri</a></li>
+        <li><a href="js_object_methods.html">Nesne Yöntemleri</a></li>
+        <li><a href="js_object_display.html">Nesne Görüntüleme</a></li>
+        <li><a href="js_object_accessors.html">Nesne Erişimcileri</a></li>
+        <li><a href="js_object_constructors.html">Nesne Yapıcıları</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Fonksiyonlar</h1></li>
+        <li><a href="js_function_definition.html">Fonksiyon Tanımı</a></li>
+        <li><a href="js_function_parameters.html">Fonksiyon Parametreleri</a></li>
+        <li><a href="js_function_invocation.html">Derinlemesine Fonksiyon Çağırma</a></li>
+        <li><a  class="active" href="js_function_call.html">Fonksiyon Çağırma </a></li>
+        <li><a href="js_function_apply.html">Fonksiyonun Uygulanması</a></li>
+        <li><a href="js_function_closures.html">Fonksiyonun Kapanması</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Fonksiyon Çağırma</h2>
+    <br>Call () yöntemiyle, farklı nesnelerde kullanılabilecek bir yöntem yazabilirsiniz.
+    <br><h2 style="color: chocolate">Tüm Fonksiyonlar Yöntemdir</h2>
+    <br>JavaScript'te tüm fonksiyonlar nesne yöntemleridir.
+    <br>Bir fonksiyon bir JavaScript nesnesinin yöntemi değilse, genel nesnenin bir fonksiyonudur (bkz. Önceki bölüm).
+    <br>Aşağıdaki örnek, firstName, lastName, fullName olmak üzere 3 özelliğe sahip bir nesne oluşturur.
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    var person = {
+      firstName:"John",
+      lastName: "Doe",
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+    person.fullName();   // "John Doe" döndürür
+</pre>
+    <br><a href="../examples/js_function_call_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">This Anahtar Kelimesi</h2>
+    <br>Bir fonksiyon tanımında, bu fonksiyonun "sahibini" ifade eder.
+    <br>Yukarıdaki örnekte, bu, fullName fonksiyonuna "sahip" olan kişi nesnesidir.
+    <br>Başka bir deyişle, this.firstName bu nesnenin firstName özelliği anlamına gelir.
+    <br><h2 style="color: chocolate">JavaScript call() Yöntemi</h2>
+    <br>Call () yöntemi, önceden tanımlanmış bir JavaScript yöntemidir.
+    <br>Bir bağımsız değişken (parametre) olarak sahip nesnesine sahip bir yöntemi çağırmak (çağırmak) için kullanılabilir.
+    <br>Aşağıdaki örnekde person1 üzerinde kullanarak kişinin fullName yöntemini çağırır:
+    <br><pre style="font-weight: bold">
+    var person = {
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+    var person1 = {
+      firstName:"John",
+      lastName: "Doe"
+    }
+    var person2 = {
+      firstName:"Mary",
+      lastName: "Doe"
+    }
+    person.fullName.call(person1);  // "John Doe" döndürür
+</pre>
+    <br><a href="../examples/js_function_call_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Aşağıdaki örnek ise person2 üzerinde kullanarak kişinin fullName yöntemini çağırır:
+    <br><pre style="font-weight: bold">
+    var person = {
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+    var person1 = {
+      firstName:"John",
+      lastName: "Doe"
+    }
+    var person2 = {
+      firstName:"Mary",
+      lastName: "Doe"
+    }
+    person.fullName.call(person2);  // "Mary Doe" döndürür
+</pre>
+    <br><a href="../examples/js_function_call_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Arguments ile call () Yöntemi</h2>
+    <br>Call () yöntemi arguments kabul edebilir:
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    var person = {
+      fullName: function(city, country) {
+        return this.firstName + " " + this.lastName + "," + city + "," + country;
+      }
+    }
+    var person1 = {
+      firstName:"John",
+      lastName: "Doe"
+    }
+    person.fullName.call(person1, "Oslo", "Norway");
+</pre>
+    <br><a href="../examples/js_function_call_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+</div>
+</body>
+</html>

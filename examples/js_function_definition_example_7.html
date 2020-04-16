@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p> Fonksiyonlar değer olarak kabul edilebilir: </p>
+<p>x = myFunction(4,3) veya x = 12</p>
+<p> Her iki durumda da, x değeri 12 olur. </p>
+<p id="demo"></p>
+
+<script>
+    function myFunction(a, b) {
+        return a * b;
+    }
+    var x = myFunction(4, 3);
+    document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Görüntüleme Nesneleri </h2>
+<p> Object.values() bir nesneyi bir diziye dönüştürür. </p>
+
+<p id="demo"></p>
+
+<script>
+    var person = {name:"John", age:50, city:"New York"};
+    var myArray = Object.values(person);
+    document.getElementById("demo").innerHTML = myArray;
+</script>
+
+</body>
+</html>

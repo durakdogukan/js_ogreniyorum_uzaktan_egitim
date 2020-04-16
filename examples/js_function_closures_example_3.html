@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2> JavaScript Fonksiyon Kapanışları </h2>
+
+<p> Genel değişkenle sayma. </p>
+
+<p id="demo"></p>
+
+<script>
+    // Sayaç başlatılır
+    var counter = 0;
+
+    // Sayacı arttırma işlevi
+    function add() {
+        counter += 1;
+    }
+
+    // add() 3 kere çağırıldı
+    add();
+    add();
+    add();
+
+    // Sayaç artık 3
+    document.getElementById("demo").innerHTML = "Sayaç: " + counter;
+    alert("Sayaç : "+ counter);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Fonksiyonun Kapanması</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Fonksiyonun Kapanması</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">JS DOM</h1></li>
+        <li><a href="js_htmldom.html">DOM Giriş</a></li>
+        <li><a href="js_htmldom_methods.html">DOM Yöntemleri</a></li>
+        <li><a href="js_htmldom_document.html">DOM Document</a></li>
+        <li><a href="adamasmacadokumanrapor.html">Adam Asmaca Döküman Rapor</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Nesneler</h1></li>
+        <li><a href="js_object_definition.html">Nesne Tanımları</a></li>
+        <li><a href="js_object_properties.html">Nesne Özellikleri</a></li>
+        <li><a href="js_object_methods.html">Nesne Yöntemleri</a></li>
+        <li><a href="js_object_display.html">Nesne Görüntüleme</a></li>
+        <li><a href="js_object_accessors.html">Nesne Erişimcileri</a></li>
+        <li><a href="js_object_constructors.html">Nesne Yapıcıları</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Fonksiyonlar</h1></li>
+        <li><a href="js_function_definition.html">Fonksiyon Tanımı</a></li>
+        <li><a href="js_function_parameters.html">Fonksiyon Parametreleri</a></li>
+        <li><a href="js_function_invocation.html">Derinlemesine Fonksiyon Çağırma</a></li>
+        <li><a href="js_function_call.html">Fonksiyon Çağırma </a></li>
+        <li><a href="js_function_apply.html">Fonksiyonun Uygulanması</a></li>
+        <li><a  class="active" href="js_function_closures.html">Fonksiyonun Kapanması</a></li>
+
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Kapanışları</h2>
+    <br>JavaScript değişkenleri yerel veya global kapsama ait olabilir.
+    <br>Global değişkenler kapanışlarla yerel (özel) yapılabilir.
+    <br><h2 style="color: chocolate">Global Değişkenleri</h2>
+    <br>Bir fonksiyon, fonksiyonun içinde tanımlanan tüm değişkenlere şu şekilde erişebilir:
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    function myFunction() {
+      var a = 4;
+      return a * a;
+    }
+</pre>
+    <br><a href="../examples/js_function_closures_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Ancak bir fonksiyon, fonksiyon dışında tanımlanan değişkenlere de şu şekilde erişebilir:
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    var a = 4;
+    function myFunction() {
+      return a * a;
+    }
+</pre>
+    <br><a href="../examples/js_function_closures_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Son örnekte, a global bir değişkendir.
+    <br>Bir web sayfasında, global değişkenler pencere nesnesine aittir.
+    <br>Genel değişkenler sayfadaki (ve penceredeki) tüm komut dosyaları tarafından kullanılabilir (ve değiştirilebilir).
+    <br>İlk örnekte, a yerel bir değişkendir.
+    <br>Bir yerel değişken sadece tanımlandığı fonksiyonun içinde kullanılabilir. Diğer fonksiyonlardan ve diğer komut dosyası kodlarından gizlenir.
+    <br>Aynı ada sahip genel ve yerel değişkenler farklı değişkenlerdir. Birini değiştirmek diğerini değiştirmez.
+    <br><h2 style="color: chocolate">Değişkenin Ömrü</h2>
+    <br>Genel değişkenler, başka bir sayfaya gittiğinizde veya pencereyi kapattığınızda olduğu gibi sayfa atılana kadar yaşar.
+    <br>Yerel değişkenlerin kısa ömürleri vardır. Bunlar fonksiyon çağrıldığında oluşturulur ve fonksiyon tamamlandığında silinir.
+    <br><h2 style="color: chocolate">A Counter Dilemma</h2>
+    <br>Bir şeyi saymak için bir değişken kullanmak istediğinizi ve bu sayacın tüm işlevler için kullanılabilir olmasını istediğinizi varsayalım.
+    <br>Genel bir değişken ve sayacı artırmak için bir işlev kullanabilirsiniz:
+    <br>Örnek:
+    <br><pre style="font-weight:bold">
+    // Sayaç başlatılır
+    var counter = 0;
+    // Sayacı arttırma işlevi
+    function add() {
+      counter += 1;
+    }
+
+    // add() 3 kere çağırıldı
+    add();
+    add();
+    add();
+
+    // Sayaç artık 3
+</pre>
+    <br><a href="../examples/js_function_closures_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Yukarıdaki çözümde bir sorun var: Sayfadaki herhangi bir kod, add () öğesini çağırmadan sayacı değiştirebilir.
+    <br>Sayaç, diğer kodların değiştirilmesini önlemek için add () fonksiyonunda yerel olmalıdır:
+    <br>Örnek
+    <br><pre style="font-weight: bold">
+    // Sayaç başlatılır
+    var counter = 0;
+
+    // Sayacı arttırma fonksiyonu
+    function add() {
+      var counter = 0;
+      counter += 1;
+    }
+
+    // add() 3 kere çağırıldı
+    add();
+    add();
+    add();
+
+    //Sayaç artık 3 olmalı fakat sayaç 0 olur...
+</pre>
+    <br><a href="../examples/js_function_closures_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>İşe yaramadı çünkü yerel sayaç yerine global sayacı görüntülüyoruz.
+    <br>Global sayacı kaldırabilir ve fonksiyonun geri döndürmesine izin vererek yerel sayaca erişebiliriz:
+    <br>Örnek
+    <br><pre style="font-weight: bold">
+    // Sayacı arttırma fonksiyonu
+    function add() {
+      var counter = 0;
+      counter += 1;
+      return counter;
+    }
+
+    // add() 3 kere çağırıldı
+    add();
+    add();
+    add();
+
+    //Sayaç artık 3 olmalı fakat sayaç 1 olur...
+</pre>
+    <br>Fonksiyonu her çağırdığımızda yerel sayacı sıfırladığımız için çalışmadı.
+    <br>Bir JavaScript iç fonksiyonu bunu çözebilir.
+    <br><h2 style="color: chocolate">JavaScript İç İçe Fonksiyonlar</h2>
+    <br>Tüm fonksiyonların global kapsama erişimi vardır.
+    <br>Aslında, JavaScript'te, tüm fonksiyonların kendilerinin "üstündeki" kapsama erişimi vardır.
+    <br>JavaScript iç içe fonksiyonları destekler.
+    <br>Bu örnekte iç fonksiyon plus (), üst fonksiyondaki sayaç değişkenine erişime sahiptir:
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    function add() {
+      var counter = 0;
+      function plus() {counter += 1;}
+      plus();
+      return counter;
+    }
+</pre>
+    <br><a href="../examples/js_function_closures_example_5.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Dışarıdan plus () fonksiyonuna erişebilseydik, bu karşı ikilemi çözebilirdi.
+    <br>Ayrıca counter = 0'ı yalnızca bir kez yürütmenin bir yolunu bulmamız gerekir.
+    <br>Bir closure a ihtiyacımız var.
+    <br><h2 style="color: chocolate">JavaScript Closures</h2>
+    <br>Kendini çağıran fonksiyonları hatırlıyor musunuz? Bu fonksiyon ne işe yarıyor sizce?
+    <br><pre style="font-weight: bold">
+    var add = (function () {
+      var counter = 0;
+      return function () {counter += 1; return counter}
+    })();
+
+    add();
+    add();
+    add();
+
+    // Sayaç 3
+</pre>
+    <br><a href="../examples/js_function_closures_example_6.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">Örneğin Açıklaması</h2>
+    <br>Add değişkeni, kendini çağırma fonksiyonunun dönüş değeri olarak atanır.
+    <br>Kendini çağırma fonksiyonu yalnızca bir kez çalışır. Sayacı sıfıra (0) ayarlar ve bir fonksiyon ifadesi döndürür.
+    <br>Bu şekilde ekleme fonksiyonu olur. "Harika" kısmı, ana kapsamdaki sayaca erişebilmesidir.
+    <br>Buna JavaScript closures adı verilir. Bir fonksiyonun "özel" değişkenlere sahip olmasını mümkün kılar.
+    <br>Sayaç, anonim fonksiyonun kapsamı tarafından korunur ve yalnızca add fonksiyonu kullanılarak değiştirilebilir.
+</div>
+</body>
+</html>

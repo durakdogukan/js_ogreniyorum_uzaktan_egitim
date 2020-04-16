@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Fonksiyon Tanımı</title>
+</head>
+<style>
+    *{
+        zoom: 100%;
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-decoration: none;
+    }
+
+    img {
+        max-width:50%;
+        height:auto;
+    }
+
+    .active{
+        background-color: #4CAF50;
+    }
+    .sidebar ul{
+        width: 16%;
+        height: 93%;
+        background-color: #f1f1f1;
+        position: fixed;
+        display: block;
+        overflow-y: scroll;
+        top: 70px;
+    }
+    .sidebar header{
+        list-style-type: none;
+
+        position: fixed;
+        font-size: 22px;
+        top: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        line-height:70px;
+        background: #063146;
+        user-select: none;
+    }
+
+    .sidebar ul a{
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 18px;
+        color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255,255,255,1);
+        border-bottom: 1px solid black;
+        transition: .4s;
+    }
+    .sidebar ul li:hover a{
+        padding-left: 50px;
+    }
+    .sidebar ul a i{
+        margin-right: 16px;
+    }
+
+    .sidebar li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+    }
+
+    .sidebar li a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .sidebar li a.active{
+        background-color: darkblue;
+        color: white;
+
+    }
+
+    .ex2{
+
+        top: 100px;
+        margin-left:17%;
+        width: 83%;
+        height: 90%;
+        font-family: "Comic Sans MS";
+        font-size: 23px;
+        position: fixed;
+        display: block;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    br {
+        display: block;
+        content: "";
+        margin-top: 30px;
+    }
+
+    .animate
+    {
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+    }
+
+    .action-button
+    {
+        position: relative;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 10px;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        color: #FFF;
+        text-decoration: none;
+        width: auto;
+    }
+
+    .blue
+    {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+    }
+
+    .action-button:active
+    {
+        transform: translate(0px,5px);
+        -webkit-transform: translate(0px,5px);
+        border-bottom: 1px solid;
+    }
+
+    table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+        width: 30%;
+    }
+
+    table {
+        border-collapse: collapse;
+
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        width: 30%;
+    }
+    th{
+        background-color: #1e22af;
+        color: white;
+        text-align: center;
+    }
+
+    .tablo1 tr:nth-child(odd) {
+        background-color: #ddebff;
+    }
+
+
+</style>
+<body>
+
+<div class="sidebar">
+    <header>JavaScript Nesne Tanımı</header>
+    <ul width="300px">
+        <li><h1 style="text-align: center"  class="active" href="#home">JS DOM</h1></li>
+        <li><a href="js_htmldom.html">DOM Giriş</a></li>
+        <li><a href="js_htmldom_methods.html">DOM Yöntemleri</a></li>
+        <li><a href="js_htmldom_document.html">DOM Document</a></li>
+        <li><a href="adamasmacadokumanrapor.html">Adam Asmaca Döküman Rapor</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Nesneler</h1></li>
+        <li><a  class="active" href="js_object_definition.html">Nesne Tanımları</a></li>
+        <li><a href="js_object_properties.html">Nesne Özellikleri</a></li>
+        <li><a href="js_object_methods.html">Nesne Yöntemleri</a></li>
+        <li><a href="js_object_display.html">Nesne Görüntüleme</a></li>
+        <li><a href="js_object_accessors.html">Nesne Erişimcileri</a></li>
+        <li><a href="js_object_constructors.html">Nesne Yapıcıları</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">JS Fonksiyonlar</h1></li>
+        <li><a href="js_function_definition.html">Fonksiyon Tanımı</a></li>
+        <li><a href="js_function_parameters.html">Fonksiyon Parametreleri</a></li>
+        <li><a href="js_function_invocation.html">Derinlemesine Fonksiyon Çağırma</a></li>
+        <li><a href="js_function_call.html">Fonksiyon Çağırma </a></li>
+        <li><a href="js_function_apply.html">Fonksiyonun Uygulanması</a></li>
+        <li><a href="js_function_closures.html">Fonksiyonun Kapanması</a></li>
+        <li><h1 style="text-align: center"  class="active" href="#home">Temel Bilgiler</h1></li>
+        <li><a href="js_nedir.html">JavaScript Nedir?</a></li>
+        <li><a href="js_syntax.html">JavaScript Yazılım (Syntax) Yapısı</a></li>
+        <li><a href="js_variables.html">JavaScript Değişkenler</a></li>
+        <li><a href="js_operators.html">JavaScript Operatörleri</a></li>
+        <li><a href="js_arithmetic.html">JavaScript Aritmetik</a></li>
+        <li><a href="js_data_types.html">JavaScript Veri Tipleri</a></li>
+        <li><a href="js_functions.html">JavaScript Fonksiyonlar</a></li>
+        <li><a href="js_events.html">JavaScript Olaylar(Events)</a></li>
+        <li><a href="js_strings.html">JavaScript Stringler</a></li>
+        <li><a href="js_numbers.html">JavaScript Sayılar</a></li>
+        <li><a href="js_arrays.html">Diziler ve Dizi İşlemleri</a></li>
+        <li><a href="js_conditions.html">JavaScript If Koşul Yapıları</a></li>
+        <li><a href="js_loops.html">JavaScript Döngüler</a></li>
+        <li><a href="js_type_conversion.html">JavaScript Tip Dönüşümleri</a></li>
+
+    </ul>
+</div>
+
+
+
+<div class="ex2">
+    <h2 style="color: darkslateblue">JavaScript Nesneler</h2>
+    <br><li>JavaScript'te neredeyse "her şey" bir nesnedir.</li>
+    <li>Boolean'lar nesne olabilir (new anahtar kelime ile tanımlanmışsa)</li>
+    <li>Sayılar nesne olabilir (new anahtar kelime ile tanımlanmışsa)</li>
+    <li>Dizeler nesne olabilir (new anahtar kelime ile tanımlanmışsa)</li>
+    <li>Tarihler her zaman nesnedir</li>
+    <li>Matematik her zaman nesnedir</li>
+    <li>Normal ifadeler her zaman nesnedir</li>
+    <li>Diziler her zaman nesnedir</li>
+    <li>Fonksiyonlar her zaman nesnedir</li>
+    <li>Nesneler her zaman nesnedir</li>
+    <li>Temel öğeler dışındaki tüm JavaScript değerleri nesnedir.</li>
+    <br><h2 style="color: chocolate">JavaScript Temel Öğeleri</h2>
+    <br>İlkel değer, özelliği veya yöntemi olmayan bir değerdir.
+    <br>İlkel veri türü, ilkel değere sahip verilerdir.
+    <br>JavaScript 5 tür ilkel veri türü tanımlar:
+    <br><li>string</li>
+    <li>number</li>
+    <li>boolean</li>
+    <li>null</li>
+    <li>undefined</li>
+    <br>İlkel değerler değişmezdir (sabit kodlanmıştır ve bu nedenle değiştirilemezler).
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Değer</th>
+        <th>Tip</th>
+        <th>Açıklama</th>
+    </tr>
+    <tr>
+        <td>"Hello"</td>
+        <td>string</td>
+        <td>"Hello" is always "Hello"</td>
+    </tr>
+    <tr>
+        <td>3.14</td>
+        <td>number</td>
+        <td>3.14 is always 3.14</td>
+    </tr>
+    <tr>
+        <td>true</td>
+        <td>boolean</td>
+        <td>true is always true</td>
+    </tr>
+    <tr>
+        <td>false</td>
+        <td>boolean</td>
+        <td>false is always false</td>
+    </tr>
+    <tr>
+        <td>null</td>
+        <td>null (object)</td>
+        <td>null is always null</td>
+    </tr>
+    <tr>
+        <td>undefined</td>
+        <td>undefined</td>
+        <td>undefined is always undefined</td>
+    </tr>
+</table>
+    <br><h2 style="color: chocolate">Nesneler Değişkenlerdir</h2>
+    <br>JavaScript değişkenleri tek değerler içerebilir:
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    var person = "John Doe";
+</pre>
+    <br><a href="../examples/js_object_definition_example_1.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Nesneler de değişkenlerdir. Ancak nesneler birçok değer içerebilir.
+    <br>Değerler isim olarak yazılır : değer çiftleri (iki nokta üst üste ile ayrılmış ad ve değer).
+    <br>Örnek
+    <br><pre style="font-weight: bold">
+    var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+</pre>
+    <br><a href="../examples/js_object_definition_example_2.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><b>JavaScript nesnesi, adlandırılmış değerlerin bir koleksiyonudur</b>
+    <br><h2 style="color: chocolate">Nesne Özellikleri</h2>
+    <br>JavaScript nesnelerindeki adlandırılmış değerlere özellikler denir.
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Özellik</th>
+        <th>Değer</th>
+    </tr>
+    <tr>
+        <td>firstName</td>
+        <td>John</td>
+    </tr>
+    <tr>
+        <td>lastName</td>
+        <td>Doe</td>
+    </tr>
+    <tr>
+        <td>age</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>eyeColor</td>
+        <td>blue</td>
+    </tr>
+</table>
+    <br>Ad değeri çifti olarak yazılan nesneler şuna benzer:
+    <br><li>PHP'de ilişkilendirilebilir diziler</li>
+    <li>Python'da Dictionaries</li>
+    <li>C'deki Hash tables</li>
+    <li>Java'daki Hash maps</li>
+    <li>Ruby ve Perl'de Hashes</li>
+    <br><h2 style="color: chocolate">Nesne Yöntemleri</h2>
+    <br>Yöntemler nesneler üzerinde gerçekleştirilebilecek eylemlerdir .
+    <br>Nesne özellikleri hem ilkel değerler, diğer nesneler hem de fonksiyonlar olabilir.
+    <br><table class="tablo1" style="width:70%">
+    <tr>
+        <th>Özellik</th>
+        <th>Değer</th>
+    </tr>
+    <tr>
+        <td>firstName</td>
+        <td>John</td>
+    </tr>
+    <tr>
+        <td>lastName</td>
+        <td>Doe</td>
+    </tr>
+    <tr>
+        <td>age</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>eyeColor</td>
+        <td>blue</td>
+    </tr>
+    <tr>
+        <td>fullName</td>
+        <td>function() {return this.firstName + " " + this.lastName;}</td>
+    </tr>
+</table>
+    <br><b>JavaScript nesneleri, adlandırılmış değerler için özellikler ve yöntemler adı verilen kaplardır.</b>
+    <br><h2 style="color: chocolate">JavaScript Nesnesi Oluşturma</h2>
+    <br>JavaScript ile kendi nesnelerinizi tanımlayabilir ve oluşturabilirsiniz.
+    <br>Yeni nesneler oluşturmanın farklı yolları vardır:
+    <br><li>Bir nesne hazır bilgisi kullanarak tek bir nesne tanımlayın ve oluşturun.</li>
+    <li>new anahtar kelimes, ile tek bir nesne tanımlayın ve oluşturun .</li>
+    <li>Bir nesne yapıcı tanımlayın ve sonra da inşa edilen türde nesneler oluşturun.</li>
+    <br><b>ECMAScript 5'te fonksiyonla bir nesne de oluşturulabilir Object.create().</b>
+    <br><h2 style="color: chocolate">JavaScript Nesne Değişmezi Kullanma</h2>
+    <br>JavaScript Nesnesi oluşturmanın en kolay yolu budur.
+    <br> Bir nesne değişmezi kullanarak, bir deyimde bir nesne tanımlar ve yaratırsınız.
+    <br>Nesne değişmez değeri küme parantezlerinin içindeki {} ad çiftleri (yaş: 50 gibi) listesidir.
+    <br>Aşağıdaki örnek, dört özelliğe sahip yeni bir JavaScript nesnesi oluşturur:
+    <br>Örnek
+    <br><pre style="font-weight: bold">
+    var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+</pre>
+    <br><a href="../examples/js_object_definition_example_3.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br>Boşluklar ve satır kesmeleri önemli değildir. Bir nesne tanımı birden fazla satıra yayılabilir:
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    var person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+</pre>
+    <br><a href="../examples/js_object_definition_example_4.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><h2 style="color: chocolate">JavaScript new Anahtar Kelimesini Kullanma</h2>
+    <br>Aşağıdaki örnek dört özelliğe sahip yeni bir JavaScript nesnesi oluşturur:
+    <br>Örnek
+    <br><pre style="font-weight: bold">
+    var person = new Object();
+    person.firstName = "John";
+    person.lastName = "Doe";
+    person.age = 50;
+    person.eyeColor = "blue";
+</pre>
+    <br><a href="../examples/js_object_definition_example_5.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+    <br><b>Yukarıdaki iki örnek tamamen aynıdır. new Object() Kullanmaya gerek yoktur .Basitlik, okunabilirlik ve yürütme hızı için ilk yöntemi kullanın (nesne değişmez yöntemi).</b>
+    <br><h2 style="color: chocolate">JavaScript Nesneleri Değişebilir</h2>
+    <br>Nesneler değiştirilebilir: Değer ille değil referansla adreslenir.
+    <br>Kişi bir nesneyse, aşağıdaki ifade kişinin bir kopyasını oluşturmaz:
+    <br><pre style="font-weight: bold">
+    var x = person;  // Bu kişinin bir kopyasını oluşturmaz.
+</pre>
+    <br>X nesnesi kişinin bir kopyası değildir. Hem x hem de kişi aynı nesnedir.
+    <br>X ile kişi aynı nesne olduğu için x üzerinde yapılan değişiklikler de kişiyi değiştirir.
+    <br>Örnek:
+    <br><pre style="font-weight: bold">
+    var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
+
+    var x = person;
+    x.age = 10;           // Bu hem x.age hem de person.age değişkenlerini değiştirir
+</pre>
+    <br><a href="../examples/js_object_definition_example_6.html" target="_blank" class="action-button shadow animate blue">Örneği incelemek için tıklayın</a>
+    <br>&nbsp;
+    <br>&nbsp;
+    <br><div>
+    <p style="font-weight: bold;color: blue"> NOT : Kodu incelemek için örnek sayfasındayken CTRL+U tuşuna basınız. Karşınıza çıkan ekrandan kodları inceleyebilirsiniz.
+</div>
+</div>
+</body>
+</html>

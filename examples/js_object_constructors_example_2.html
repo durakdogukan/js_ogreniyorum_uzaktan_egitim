@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<script>
+    function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    var myFather = new Person("John", "Doe", 50, "blue");
+    var myMother = new Person("Sally", "Rally", 48, "green");
+
+    myFather.nationality = "English";
+
+    document.getElementById("demo").innerHTML =
+        "My father is " + myFather.nationality;
+</script>
+
+</body>
+</html>
