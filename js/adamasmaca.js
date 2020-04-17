@@ -9,7 +9,7 @@ var kelimeler = [
     "trabzon",
     "samsun",
     "muğla",
-    "marmaris"
+    "konya"
 ]
 
 let cevap = '';
